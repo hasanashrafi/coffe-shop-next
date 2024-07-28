@@ -22,12 +22,12 @@ function Header() {
             <header className='flex justify-around items-center py-5 pr-10 pl-4 mx-auto bg-black/50 backdrop-blur-lg w-[95%] h-20  rounded-3xl my-2 font-Dana'>
                 <div className="flex justify-between w-full h-14 ">
 
-                    <nav className="flex gap-x-9 p-2  w-[65%] ">
+                    <nav className="flex gap-x-9 p-2   ">
                         <div className="">
                             <img src="./images/app-logo.png" alt="app-logo" className="w-[45px] h-[45px] " />
                         </div>
 
-                        <ul className="w-full flex items-center justify-between text-white">
+                        <ul className="w-full flex items-center gap-x-9 text-white">
                             <li>
                                 <a href="">صفحه اصلی</a>
                             </li>
@@ -57,7 +57,7 @@ function Header() {
                         </ul>
                     </nav>
                     
-                    <div className=" flex w-[30%] gap-x-5 justify-center text-brown-300  items-center ">
+                    <div className=" flex  gap-x-5 justify-center text-brown-300  items-center ">
                         <div className="flex divide-x-2 w-[50%] gap-x-3   items-center ">
                             <div className="">
                                 <svg className="w-[25px] h-[25px] ">
