@@ -17,67 +17,68 @@ function Header() {
                 <symbol id="login" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" >
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                 </symbol>
-
-
             </svg>
-            <div className='flex justify-around items-center p-2 mx-auto bg-slate-300 backdrop-blur-md w-[95%] border border-slate-600 rounded-4xl my-2 font-Dana'>
-                <nav className="flex gap-4 p-2  w-[65%] ">
-                    <div className="">
-                        <img src="./images/app-logo.png" alt="app-logo" className="w-[45px] h-[45px] " />
-                    </div>
 
-                    <ul className="w-full flex items-center justify-between">
-                        <li>
-                            <a href="">صفحه اصلی</a>
-                        </li>
-                        <li className='flex flex-col group relative cursor-pointer py-2'>
-                            <a>فروشگاه</a>
-                            <ul className='invisible  absolute z-50  w-56 bg-gray-100 py-2 mt-6 rounded-4xl px-4 text-gray-800 shadow-xl group-hover:visible '>
-                                <li className=' '><a>قهوه ویژه</a></li>
-                                <li className=' '><a>قهوه ویژه در سطح جهانی</a></li>
-                                <li className=' '><a>قهوه درجه یک</a></li>
-                                <li className=' '><a>ترکیبات تجاری</a></li>
-                                <li className=' '><a>کپسول قهوه</a></li>
-                                <li className=' '><a>قهوه زینو برزیلی</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="">دیکشنری </a>
-                        </li>
-                        <li>
-                            <a href="">بلاگ </a>
-                        </li>
-                        <li>
-                            <a href="">درباره ما </a>
-                        </li>
-                        <li>
-                            <a href="">تماس با ما </a>
-                        </li>
-                    </ul>
-                </nav>
-                {/* card icon */}
-                <div className="flex w-[30%] justify-around text-brown-600  items-center  p-5">
-                    <div className="flex divide-x-2  gap-1 items-center ml-1">
-                        <div className="m-1">
-                            <svg className="w-[25px] h-[25px] ">
-                                <use xlinkHref="#night-mode"></use>
-                            </svg>
+            <header className='flex justify-around items-center py-5 pr-10 pl-4 mx-auto bg-black/50 backdrop-blur-lg w-[95%] h-20  rounded-3xl my-2 font-Dana'>
+                <div className="flex justify-between w-full h-14 ">
+
+                    <nav className="flex gap-x-9 p-2  w-[65%] ">
+                        <div className="">
+                            <img src="./images/app-logo.png" alt="app-logo" className="w-[45px] h-[45px] " />
                         </div>
-                        <div className="p-1 text-sm ">
-                            <svg className="w-[25px] h-[25px] ">
-                                <use xlinkHref="#shopping-cart"></use>
-                            </svg>
+
+                        <ul className="w-full flex items-center justify-between text-white">
+                            <li>
+                                <a href="">صفحه اصلی</a>
+                            </li>
+                            <li className='flex flex-col group relative cursor-pointer py-2'>
+                                <a>فروشگاه</a>
+                                <ul className='invisible text-brown-900  absolute z-50  w-56 bg-white drop-shadow-lg py-2 mt-9 p-5 rounded-lg px-4  shadow-xl group-hover:visible '>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه ویژه</a></li>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه ویژه در سطح جهانی</a></li>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه درجه یک</a></li>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>ترکیبات تجاری</a></li>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>کپسول قهوه</a></li>
+                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه زینو برزیلی</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="">دیکشنری </a>
+                            </li>
+                            <li>
+                                <a href="">بلاگ </a>
+                            </li>
+                            <li>
+                                <a href="">درباره ما </a>
+                            </li>
+                            <li>
+                                <a href="">تماس با ما </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <div className=" flex w-[30%] gap-x-5 justify-center text-brown-300  items-center ">
+                        <div className="flex divide-x-2 w-[50%] gap-x-3   items-center ">
+                            <div className="">
+                                <svg className="w-[25px] h-[25px] ">
+                                    <use xlinkHref="#night-mode"></use>
+                                </svg>
+                            </div>
+                            <div className=" text-sm pl-5">
+                                <svg className="w-[25px] h-[25px] ">
+                                    <use xlinkHref="#shopping-cart"></use>
+                                </svg>
+                            </div>
                         </div>
+                        <Link href="/signin" className="w-full flex items-center ">
+                            <svg className="w-[25px] h-[25px] rotate-180 ml-1">
+                                <use xlinkHref="#login"></use>
+                            </svg>
+                            ثبت نام | ورود
+                        </Link>
                     </div>
-                    <Link href="/signin" className="flex items-center mr-1">
-                        <svg className="w-[25px] h-[25px] rotate-180 ">
-                            <use xlinkHref="#login"></use>
-                        </svg>
-                        ثبت نام | ورود
-                    </Link>
                 </div>
-
-            </div>
+            </header>
         </>
     )
 }
