@@ -19,7 +19,7 @@ function Header() {
                 </symbol>
             </svg>
 
-            <header className='flex justify-around items-center py-5 pr-10 pl-4 mx-auto bg-black/50 backdrop-blur-lg w-[95%] h-20  rounded-3xl my-2 font-Dana'>
+            <header className='flex justify-around items-center py-5 pr-10 pl-4 mx-auto bg-black/50 backdrop-blur-xl w-[95%] h-20  rounded-3xl my-2 font-Dana'>
                 <div className="flex justify-between w-full h-14 ">
 
                     <nav className="flex gap-x-9 p-2   ">
