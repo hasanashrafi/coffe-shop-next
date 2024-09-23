@@ -7,11 +7,11 @@ export default function App({ Component, pageProps }) {
     <>
 
       <Head>
-      <title>Coffee-Shop</title>
-        <link rel="icon" href="/favicon.png"  />
+        <title>Coffee-Shop</title>
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <Layout>
-      <Component {...pageProps} />
+        <Component {...pageProps} />
       </Layout>
     </>
   )
