@@ -16,12 +16,10 @@ module.exports = {
           "900": "#634832"
         }
       },
-
       boxShadow: {
         "light": "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
         "dark": " 0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
       },
-
       // borderRadius: {
       //   "4xl": "2rem",
       // },
@@ -32,8 +30,16 @@ module.exports = {
         "MorabbaLight": "Morabba light",
         "MorabbaMedium": "Morabba Medium",
         "MorabbaBold": "Morabba Bold",
-      }
+      },
+      letterSpacing: {
+        "tightest": "0.065em"
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addVariant }) {
+      addVariant('child', '& > *');
+      addVariant('child-hover', '& > *:hover');
+  }
+  ],
 };
