@@ -19,26 +19,26 @@ function Layout({ children }) {
                 </symbol>
             </svg>
 
-            <header className='flex justify-around items-center px-5 mx-auto bg-black/50 backdrop-blur-xl w-[95%] h-20  rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
+            <header className='flex justify-around items-center backdrop-blur-[6px] px-5 mx-auto bg-black/30  w-[95%] h-20  rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
                 <div className="flex justify-between w-full h-24 items-center ">
 
                     <nav className="flex gap-x-9 p-2 ">
                         <div className="">
                             <img src="./images/app-logo.png" alt="app-logo" className="w-[50px] h-[45px] " />
                         </div>
-                        <ul className="w-full flex items-center  gap-x-9 text-gray-300">
+                        <ul className="w-full flex items-center tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
                             <li className="font-DanaMedium text-orange-200">
                                 <a href="">صفحه اصلی</a>
                             </li>
-                            <li className='flex flex-col group relative cursor-pointer py-2'>
+                            <li className='flex flex-col group relative cursor-pointer py-2 transition-all ease-in-out'>
                                 <a>فروشگاه</a>
-                                <ul className='invisible text-brown-900  absolute z-50  w-56 bg-white drop-shadow-lg py-2 mt-9 p-5 rounded-lg px-4  shadow-xl group-hover:visible '>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه ویژه</a></li>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه ویژه در سطح جهانی</a></li>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه درجه یک</a></li>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>ترکیبات تجاری</a></li>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>کپسول قهوه</a></li>
-                                    <li className=' p-1 hover:bg-brown-100 rounded-md '><a>قهوه زینو برزیلی</a></li>
+                                <ul className='invisible dark:bg-zinc-700 dark:child:text-white first-line:text-yellow-500 child:text-sm child:p-1 child-hover:bg-brown-100 dark:child-hover:bg-brown-600 child:rounded-md child:text-slate-900  absolute z-50  w-52 bg-white drop-shadow-lg  mt-9 p-6 rounded-lg px-4 border-t-4 border-t-yellow-500  shadow-xl group-hover:visible  transition-all ease-in-out'>
+                                    <li><a>قهوه ویژه</a></li>
+                                    <li><a>قهوه ویژه در سطح جهانی</a></li>
+                                    <li><a>قهوه درجه یک</a></li>
+                                    <li><a>ترکیبات تجاری</a></li>
+                                    <li><a>کپسول قهوه</a></li>
+                                    <li><a>قهوه زینو برزیلی</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -82,10 +82,12 @@ function Layout({ children }) {
                         </Link>
                     </div>
                 </div>
-            </header> 
-            {children}
+            </header>
+            <div className='min-h-screen'>
+                {children}
+            </div>
             <footer className='place-content-center bg-black/50 backdrop-blur-xl h-14 mx-auto text-center'>
-            Developed By HsN
+                Developed By HsN
             </footer>
         </>
     )
