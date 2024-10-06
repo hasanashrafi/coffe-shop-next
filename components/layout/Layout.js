@@ -1,7 +1,14 @@
+'use client'
 import React from 'react'
 import Link from 'next/link'
+import { useTheme } from 'next-themes';
 
 function Layout({ children }) {
+    const { systemTheme, theme, setTheme } = useTheme();
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    const darkMode = () => {
+        theme == "dark" ? setTheme('light') : setTheme("dark")
+    }
     return (
         <>
             <svg className="hidden">
@@ -19,27 +26,62 @@ function Layout({ children }) {
                 </symbol>
             </svg>
 
-            <header className='flex justify-around items-center backdrop-blur-[6px] px-5 mx-auto bg-black/30  w-[95%] h-20  rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
-                <div className="flex justify-between w-full h-24 items-center ">
+            <header className=' flex justify-around items-center backdrop-blur-[6px] px-5 mx-auto bg-black/30  w-[95%] h-20  rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
+                <div className=" flex justify-between w-full items-center ">
 
-                    <nav className="flex gap-x-9 p-2 ">
+                    <nav className="flex gap-x-6 lg:gap-x-9  h-14">
                         <div className="">
                             <img src="./images/app-logo.png" alt="app-logo" className="w-[50px] h-[45px] " />
                         </div>
-                        <ul className="w-full flex items-center tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
+                        <ul className="w-full h-full flex items-center text-sm lg:text-md tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
                             <li className="font-DanaMedium text-orange-200">
                                 <a href="">صفحه اصلی</a>
                             </li>
-                            <li className='flex flex-col group relative cursor-pointer py-2 transition-all ease-in-out'>
-                                <a>فروشگاه</a>
-                                <ul className='invisible dark:bg-zinc-700 dark:child:text-white first-line:text-yellow-500 child:text-sm child:p-1 child-hover:bg-brown-100 dark:child-hover:bg-brown-600 child:rounded-md child:text-slate-900  absolute z-50  w-52 bg-white drop-shadow-lg  mt-9 p-6 rounded-lg px-4 border-t-4 border-t-yellow-500  shadow-xl group-hover:visible  transition-all ease-in-out'>
-                                    <li><a>قهوه ویژه</a></li>
-                                    <li><a>قهوه ویژه در سطح جهانی</a></li>
-                                    <li><a>قهوه درجه یک</a></li>
-                                    <li><a>ترکیبات تجاری</a></li>
-                                    <li><a>کپسول قهوه</a></li>
-                                    <li><a>قهوه زینو برزیلی</a></li>
-                                </ul>
+                            <li className='group relative '>
+                                <a
+                                    href='#'
+                                    className='group-hover:text-orange-300 transition-colors cursor-pointer'>فروشگاه</a>
+                                <div className=' 
+                                invisible
+                                    opacity-0
+                                    mt-2
+                                    absolute
+                                    z-50 
+                                    w-52
+                                 bg-white
+                                drop-shadow-lg
+                                 p-6
+                                 rounded-2xl 
+                                border-t-4
+                                  border-t-yellow-500 
+                                  shadow-dark 
+                                 group-hover:opacity-100 
+                                  leading-[56px] 
+                                 group-hover:visible 
+                                  tracking-normal 
+                                   top-full
+                                    text-base
+                                    transition-all
+                                     ease-in-out
+                                      space-y-4
+                                       dark:bg-zinc-700
+                                        dark:child:text-white
+                                         dark:child-hover:text-orange-300
+                                         first-line:text-yellow-500
+                                         child:block 
+                            
+                                          child:text-sm 
+                                           child-hover:text-orange-300
+                                            child:transition-colors
+                                               child:text-slate-900
+                                                           '>
+                                    <a href='#'>قهوه ویژه</a>
+                                    <a href='#'>قهوه ویژه در سطح جهانی</a>
+                                    <a href='#'>قهوه درجه یک</a>
+                                    <a href='#'>ترکیبات تجاری</a>
+                                    <a href='#'>کپسول قهوه</a>
+                                    <a href='#'>قهوه زینو برزیلی</a>
+                                </div>
                             </li>
                             <li>
                                 <a href="">دیکشنری </a>
@@ -57,24 +99,72 @@ function Layout({ children }) {
                     </nav>
 
                     <div className=" flex  gap-x-5 justify-center text-orange-200 items-center ">
-                        <div className="flex  w-[50%] gap-x-2   items-center ">
-                            <div className="">
-                                <svg className="w-[25px] h-[25px] ">
-                                    <use xlinkHref="#night-mode"></use>
-                                </svg>
+
+                        <div className="flex child:cursor-pointer  gap-x-2   items-center ">
+                            <div>
+                                <div className='py-3 relative group group-hover:visible '>
+                                    <svg className="w-7 h-7 ">
+                                        <use href="#shopping-cart"></use>
+                                    </svg>
+                                    <div className=' 
+                                    invisible
+                                    opacity-0
+                                    
+                                    mt-2
+                                    absolute
+                                    z-68
+                                    w-52
+                                 bg-white
+                                drop-shadow-lg
+                                 p-6
+                                 rounded-2xl 
+                                border-t-4
+                                  border-t-yellow-500 
+                                  shadow-dark 
+                                 group-hover:opacity-100 
+                                  leading-[56px] 
+                                 group-hover:visible 
+                                  tracking-normal 
+                                   top-full
+                                    text-base
+                                    transition-all
+                                     ease-in-out
+                                      space-y-4
+                                       dark:bg-zinc-700
+                                        dark:child:text-white
+                                         dark:child-hover:text-orange-300
+                                         first-line:text-yellow-500
+                                         child:block 
+                                          child:text-sm 
+                                           child-hover:text-orange-300
+                                            child:transition-colors
+                                               child:text-slate-900'>
+                                        <p>salam</p>
+                                        <p>salam</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className=" pl-2">
-                                <svg className="w-[25px] h-[25px] ">
-                                    <use xlinkHref="#shopping-cart"></use>
-                                </svg>
-                            </div>
+                            <button className='' onClick={darkMode}>
+                                {
+                                    currentTheme === "dark" ?
+                                        <svg className=" w-7 h-7">
+                                            <use href="#sun"></use>
+                                        </svg>
+                                        :
+                                        <svg className=" w-7 h-7 ">
+                                            <use href="#night-mode"></use>
+                                        </svg>
+
+                                }
+                            </button>
+
                         </div>
                         <span className="block w-px h-10 bg-white"></span>
                         <Link href="/signin" className="w-full flex items-center gap-x-2">
-                            <svg className="w-[25px] h-[25px] rotate-180 ">
-                                <use xlinkHref="#login"></use>
+                            <svg className="w-7 h-7 rotate-180 ">
+                                <use href="#login"></use>
                             </svg>
-                            <span>
+                            <span className='text-sm lg:text-md'>
                                 ثبت نام
                                 |
                                 ورود
@@ -83,10 +173,12 @@ function Layout({ children }) {
                     </div>
                 </div>
             </header>
-            <div className='min-h-screen'>
+
+            <div className=''>
                 {children}
             </div>
-            <footer className='place-content-center bg-black/50 backdrop-blur-xl h-14 mx-auto text-center'>
+
+            <footer className='mt-96 place-content-center bg-black/50 backdrop-blur-xl h-14 mx-auto text-center'>
                 Developed By HsN
             </footer>
         </>
