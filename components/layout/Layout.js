@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes';
+import Image from 'next/image';
 
 function Layout({ children }) {
     const { systemTheme, theme, setTheme } = useTheme();
@@ -24,16 +25,20 @@ function Layout({ children }) {
                 <symbol id="login" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
                 </symbol>
+                <symbol id='arrow' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </symbol>
+
             </svg>
 
             <header className=' flex justify-around items-center backdrop-blur-[6px] px-5 mx-auto bg-black/30  w-[95%] h-20  rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
                 <div className=" flex justify-between w-full items-center ">
 
-                    <nav className="flex gap-x-6 lg:gap-x-9  h-14">
+                    <nav className="flex items-center gap-x-6 lg:gap-x-9  h-14">
                         <div className="">
                             <img src="./images/app-logo.png" alt="app-logo" className="w-[50px] h-[45px] " />
                         </div>
-                        <ul className="w-full h-full flex items-center text-sm lg:text-md tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
+                        <ul className="w-full h-full flex items-center text-md lg:text-md tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
                             <li className="font-DanaMedium text-orange-200">
                                 <a href="">صفحه اصلی</a>
                             </li>
@@ -42,8 +47,8 @@ function Layout({ children }) {
                                     href='#'
                                     className='group-hover:text-orange-300 transition-colors cursor-pointer'>فروشگاه</a>
                                 <div className=' 
-                                invisible
-                                    opacity-0
+                               invisible
+                               opacity-0
                                     mt-2
                                     absolute
                                     z-50 
@@ -69,7 +74,6 @@ function Layout({ children }) {
                                          dark:child-hover:text-orange-300
                                          first-line:text-yellow-500
                                          child:block 
-                            
                                           child:text-sm 
                                            child-hover:text-orange-300
                                             child:transition-colors
@@ -100,20 +104,19 @@ function Layout({ children }) {
 
                     <div className=" flex  gap-x-5 justify-center text-orange-200 items-center ">
 
-                        <div className="flex child:cursor-pointer  gap-x-2   items-center ">
+                        <div className="flex  gap-x-2  items-center ">
                             <div>
-                                <div className='py-3 relative group group-hover:visible '>
-                                    <svg className="w-7 h-7 ">
+                                <div className=' relative group cursor-pointer '>
+                                    <svg className="size-7 ">
                                         <use href="#shopping-cart"></use>
                                     </svg>
                                     <div className=' 
-                                    invisible
-                                    opacity-0
-                                    
+                                    left-0
                                     mt-2
                                     absolute
                                     z-68
-                                    w-52
+                                    w-[400px]
+                                    leading-[56px]
                                  bg-white
                                 drop-shadow-lg
                                  p-6
@@ -122,36 +125,65 @@ function Layout({ children }) {
                                   border-t-yellow-500 
                                   shadow-dark 
                                  group-hover:opacity-100 
-                                  leading-[56px] 
                                  group-hover:visible 
-                                  tracking-normal 
-                                   top-full
-                                    text-base
+                                   tracking-normal
                                     transition-all
                                      ease-in-out
-                                      space-y-4
-                                       dark:bg-zinc-700
-                                        dark:child:text-white
-                                         dark:child-hover:text-orange-300
-                                         first-line:text-yellow-500
-                                         child:block 
-                                          child:text-sm 
-                                           child-hover:text-orange-300
-                                            child:transition-colors
-                                               child:text-slate-900'>
-                                        <p>salam</p>
-                                        <p>salam</p>
+                                       dark:bg-zinc-700 '>
+                                        {/* cart header */}
+                                        <div className='flex justify-between  items-center  font-DanaMedium text-xs'>
+                                            <span className='  text-gray-400 '>
+                                                1 مورد
+                                            </span>
+                                            <a href='#' className='text-orange-300 gap-x-2 w-fit flex items-center'>
+                                                مشاهده سبد خرید
+                                                <svg className="size-4 ">
+                                                    <use href="#arrow"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        {/* cart footer */}
+
+                                        <div className='flex gap-x-2.5  mt-5 pb-4 border-b-2 border-b-gray-300 dark:border-b-white/10'>
+                                            <Image
+                                                src='/images/products/p1.png'
+                                                className='w-[120px] h-[120px]'
+                                                width={100}
+                                                height={100}
+                                                priority />
+                                            <div className='flex flex-col justify-between '>
+                                                <p className='font-DanaMedium dark:text-white text-base text-zinc-700'>قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی</p>
+                                                <div className=''>
+                                                    <span className='tracking-tighter text-teal-600 dark:text-emerald-400 text-sm'>14,500 تومان  تخفیف</span>
+                                                    <div className=' font-DanaDemiBold text-zinc-700 dark:text-white'>
+                                                        125.000
+                                                        <span className=' font-Dana text-xs'> تومان</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className='flex justify-between mt-4  items-center'>
+                                            <div className='flex flex-col items-center justify-center text-zinc-700 dark:text-gray-300'>
+                                                <p className='font-Dana text-sm tracking-tighter '>مبلغ قابل پرداخت</p>
+                                                <p className='font-DanaDemiBold text-md dark:text-white'>
+                                                    350.000
+                                                    <span className='text-sm mr-1'>تومان</span>
+                                                </p>
+                                            </div>
+                                            <button className='bg-teal-600 text-white rounded-2xl px-4 h-12 text-sm  ' >ثبت سفارش</button>
+
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <button className='' onClick={darkMode}>
                                 {
                                     currentTheme === "dark" ?
-                                        <svg className=" w-7 h-7">
+                                        <svg className=" size-7">
                                             <use href="#sun"></use>
                                         </svg>
                                         :
-                                        <svg className=" w-7 h-7 ">
+                                        <svg className=" size-7 ">
                                             <use href="#night-mode"></use>
                                         </svg>
 
