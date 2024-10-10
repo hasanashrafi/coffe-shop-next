@@ -77,8 +77,7 @@ function Layout({ children }) {
                                           child:text-sm 
                                            child-hover:text-orange-300
                                             child:transition-colors
-                                               child:text-slate-900
-                                                           '>
+                                               child:text-slate-900'>
                                     <a href='#'>قهوه ویژه</a>
                                     <a href='#'>قهوه ویژه در سطح جهانی</a>
                                     <a href='#'>قهوه درجه یک</a>
