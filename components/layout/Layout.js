@@ -110,8 +110,10 @@ function Layout({ children }) {
                                         <use href="#shopping-cart"></use>
                                     </svg>
                                     <div className=' 
+                                    
                                     left-0
                                     mt-2
+                                    top-full
                                     absolute
                                     z-68
                                     w-[400px]
@@ -125,6 +127,7 @@ function Layout({ children }) {
                                   shadow-dark 
                                  group-hover:opacity-100 
                                  group-hover:visible 
+                        
                                    tracking-normal
                                     transition-all
                                      ease-in-out
@@ -142,25 +145,48 @@ function Layout({ children }) {
                                             </a>
                                         </div>
                                         {/* cart footer */}
+                                        <div className='divide-y divide-gray-100 dark:divide-white/10 child:py-5 border-b-2 border-b-gray-300 dark:border-b-white/10'>
 
-                                        <div className='flex gap-x-2.5  mt-5 pb-4 border-b-2 border-b-gray-300 dark:border-b-white/10'>
-                                            <Image
-                                                src='/images/products/p1.png'
-                                                className='w-[120px] h-[120px]'
-                                                width={100}
-                                                height={100}
-                                                priority />
-                                            <div className='flex flex-col justify-between '>
-                                                <p className='font-DanaMedium dark:text-white text-base text-zinc-700'>قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی</p>
-                                                <div className=''>
-                                                    <span className='tracking-tighter text-teal-600 dark:text-emerald-400 text-sm'>14,500 تومان  تخفیف</span>
-                                                    <div className=' font-DanaDemiBold text-zinc-700 dark:text-white'>
-                                                        125.000
-                                                        <span className=' font-Dana text-xs'> تومان</span>
+                                            <div className='flex gap-x-2.5'>
+                                                <Image
+                                                    src='/images/products/p1.png'
+                                                    className='w-[120px] h-[120px]'
+                                                    width={100}
+                                                    height={100}
+                                                    priority />
+                                                <div className='flex flex-col justify-between '>
+                                                    <p className='font-DanaMedium dark:text-white text-base text-zinc-700'>قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی</p>
+                                                    <div className=''>
+                                                        <span className='tracking-tighter text-teal-600 dark:text-emerald-400 text-sm'>14,500 تومان  تخفیف</span>
+                                                        <div className=' font-DanaDemiBold text-zinc-700 dark:text-white'>
+                                                            125.000
+                                                            <span className=' font-Dana text-xs'> تومان</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className='flex gap-x-2.5'>
+                                                <Image
+                                                    src='/images/products/p1.png'
+                                                    className='w-[120px] h-[120px]'
+                                                    width={100}
+                                                    height={100}
+                                                    priority />
+                                                <div className='flex flex-col justify-between '>
+                                                    <p className='font-DanaMedium dark:text-white text-base text-zinc-700'>قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی</p>
+                                                    <div className=''>
+                                                        <span className='tracking-tighter text-teal-600 dark:text-emerald-400 text-sm'>14,500 تومان  تخفیف</span>
+                                                        <div className=' font-DanaDemiBold text-zinc-700 dark:text-white'>
+                                                            125.000
+                                                            <span className=' font-Dana text-xs'> تومان</span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+
+
                                         <div className='flex justify-between mt-4  items-center'>
                                             <div className='flex flex-col items-center justify-center text-zinc-700 dark:text-gray-300'>
                                                 <p className='font-Dana text-sm tracking-tighter '>مبلغ قابل پرداخت</p>
@@ -205,7 +231,7 @@ function Layout({ children }) {
                 </div>
             </header>
 
-            <div className=''>
+            <div className='min-h-screen'>
                 {children}
             </div>
 
