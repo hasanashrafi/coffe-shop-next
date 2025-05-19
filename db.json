@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "قهوه اسپرسو بن مانو مدل پریسکا 250 گرمی",
+      "price": 125,
+      "discount": 14.5,
+      "description": "This is product 1.",
+      "image": "/images/products/p1.png",
+      "category": "coffee"
+    },
+    {
+      "id": 2,
+      "name": "چای سبز بن مانو مدل پریمیوم 250 گرمی",
+      "price": 95,
+      "discount": 12.5,
+      "description": "چای سبز با کیفیت عالی و طعم منحصر به فرد",
+      "image": "/images/products/p2.png",
+      "category": "tea"
+    },
+    {
+      "id": 3,
+      "name": "آبمیوه طبیعی بن مانو مدل اسپشیال 1 لیتری",
+      "price": 85,
+      "discount": 10,
+      "description": "آبمیوه طبیعی با طعم تازه و دلپذیر",
+      "image": "/images/products/p3.png",
+      "category": "juice"
+    },
+    {
+      "id": 4,
+      "name": "قهوه ترک بن مانو مدل کلاسیک 250 گرمی",
+      "price": 135,
+      "discount": 13,
+      "description": "قهوه ترک با کیفیت برتر و طعم اصیل",
+      "image": "/images/products/p4.png",
+      "category": "coffee"
+    },
+    {
+      "id": 5,
+      "name": "چای سیاه بن مانو مدل گلد 250 گرمی",
+      "price": 105,
+      "discount": 11.5,
+      "description": "چای سیاه با عطر و طعم قوی و دلپذیر",
+      "image": "/images/products/p5.png",
+      "category": "tea"
+    },
+    {
+      "id": 6,
+      "name": "آبمیوه مخلوط بن مانو مدل پلاس 1 لیتری",
+      "price": 95,
+      "discount": 12,
+      "description": "آبمیوه مخلوط با طعم منحصر به فرد",
+      "image": "/images/products/p6.png",
+      "category": "juice"
+    },
+    {
+      "id": 7,
+      "name": "قهوه فرانسه بن مانو مدل پریمیوم 250 گرمی",
+      "price": 145,
+      "discount": 14,
+      "description": "قهوه فرانسه با کیفیت ممتاز و طعم منحصر به فرد",
+      "image": "/images/products/p7.png",
+      "category": "coffee"
+    },
+    {
+      "id": 8,
+      "name": "چای اولانگ بن مانو مدل سلکت 250 گرمی",
+      "price": 115,
+      "discount": 13.5,
+      "description": "چای اولانگ با عطر و طعم قوی و دلپذیر",
+      "image": "/images/products/p8.png",
+      "category": "tea"
+    }
+  ]
+}
