@@ -21,9 +21,15 @@ module.exports = {
         "light": "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
         "dark": " 0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
       },
-      // borderRadius: {
-      //   "4xl": "2rem",
-      // },
+      keyframes: {
+        steam: {
+          '0%': { transform: 'translateY(0) scale(1)', opacity: '1' },
+          '100%': { transform: 'translateY(-20px) scale(0.5)', opacity: '0' }
+        }
+      },
+      animation: {
+        'steam': 'steam 2s ease-out infinite',
+      },
       fontFamily: {
         "Dana": "Dana",
         "DanaMedium": "Dana Medium",
@@ -41,6 +47,6 @@ module.exports = {
     function ({ addVariant }) {
       addVariant('child', '& > *');
       addVariant('child-hover', '& > *:hover');
-  }
+    }
   ],
 };
