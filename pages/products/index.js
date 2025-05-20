@@ -1,3 +1,4 @@
+import Loader from '@/components/modules/Loader'
 import ProductsPage from '@/components/ProductsPage'
 import React, { useState, useEffect } from 'react'
 
@@ -9,7 +10,7 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('http://localhost:3001/products')
+        const res = await fetch('http://localhost:3004/api/products')
         const data = await res.json()
         setData(data)
       } catch (error) {
@@ -21,7 +22,7 @@ function Products() {
     fetchProducts()
   }, [])
 
-  if (loading) return <div>Loading...</div>
+  if (loading) return <Loader />
   if (error) return <div>Error: {error.message}</div>
 
   return (
