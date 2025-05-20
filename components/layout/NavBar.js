@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
@@ -5,11 +6,11 @@ function NavBar() {
   return (
     <nav className="flex items-center gap-x-6 lg:gap-x-9  h-14">
     <div className="">
-        <img src="./images/app-logo.png" alt="app-logo" className="w-[50px] h-[45px] " />
+        <Image src="/images/app-logo.png" priority width={100} height={100} alt="app-logo" className="w-[50px] h-[45px] " />
     </div>
     <ul className="w-full h-full flex items-center text-md lg:text-md tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
         <li className="font-DanaMedium text-orange-200">
-        <a href="">صفحه اصلی</a>
+        <Link href="/">صفحه اصلی</Link>
         </li>
         <li className='group relative '>
         <Link
@@ -23,13 +24,17 @@ function NavBar() {
                 <a href='#'>کپسول قهوه</a>
                 <a href='#'>قهوه زینو برزیلی</a></div>
         </li>
-        <li><a href="">دیکشنری </a>
+        <li>
+        <a href="">دیکشنری </a>
         </li>
-        <li><a href="">بلاگ </a>
+        <li>
+        <a href="">بلاگ </a>
         </li>
-        <li><a href="">درباره ما </a>
+        <li>
+        <a href="">درباره ما </a>
         </li>
-        <li><a href="">تماس با ما </a>
+        <li>
+        <a href="">تماس با ما </a>
         </li>
     </ul>
 </nav>
