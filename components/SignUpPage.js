@@ -1,0 +1,153 @@
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { FaCoffee } from 'react-icons/fa'
+import { useRouter } from 'next/router'
+
+import NavBar from './layout/NavBar';
+
+function SignUpPage() {
+    const router = useRouter();
+    const [formData, setFormData] = useState({
+        username: "",
+        email: "",
+        password: ""
+    });
+
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            setLoading(true);
+            setError(null);
+
+            const response = await fetch("http://localhost:3004/api/users/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Signup failed');
+            }
+
+            const data = await response.json();
+            console.log(data)
+
+            // Store the new token and user data
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("user", JSON.stringify(data.user));
+
+            // Redirect to home page
+            router.push("/");
+        } catch (error) {
+            setError(error.message);
+        } finally {
+            setLoading(false);
+        }
+    };
+    return (
+        <>
+            <div className='absolute bg-black/70 p-2 w-full font-DanaMedium'>
+                <NavBar />
+            </div>
+            <div className=' bg-[url("/images/background/coffe-bg.jpg")] bg-cover bg-center min-h-screen  flex items-center justify-center'>
+                <div className='w-full max-w-md mx-4'>
+                    <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-brown-300/90'>
+                        {/* Logo */}
+                        <div className='flex justify-center mb-8'>
+                            <div className='bg-brown-600 p-4 rounded-full'>
+                                <FaCoffee className='w-8 h-8 text-white' />
+                            </div>
+                        </div>
+
+                        {/* Title */}
+                        <h1 className='text-2xl font-MorabbaBold text-brown-900 dark:text-white text-center mb-6'>
+                            ثبت نام در کافی شاپ
+                        </h1>
+
+                        {/* Form */}
+                        <form onSubmit={handleSubmit} className='space-y-4'>
+                            <div>
+                                <label className='block text-sm font-DanaMedium text-brown-600 dark:text-brown-300 mb-2'>
+                                    نام کاربری
+                                </label>
+                                <input
+                                    name="username"
+                                    onChange={handleChange}
+                                    value={formData.username}
+                                    type="text"
+                                    className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors font-Dana'
+                                    placeholder='نام کاربری خود را وارد کنید'
+                                />
+                            </div>
+
+                            <div>
+                                <label className='block text-sm font-DanaMedium text-brown-600 dark:text-brown-300 mb-2'>
+                                    ایمیل
+                                </label>
+                                <input
+                                    name="email"
+                                    onChange={handleChange}
+                                    value={formData.email}
+                                    type="email"
+                                    className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors font-Dana'
+                                    placeholder='ایمیل خود را وارد کنید'
+                                />
+                            </div>
+
+                            <div>
+                                <label className='block text-sm font-DanaMedium text-brown-600 dark:text-brown-300 mb-2'>
+                                    رمز عبور
+                                </label>
+                                <input
+                                    name="password"
+                                    onChange={handleChange}
+                                    value={formData.password}
+                                    type="password"
+                                    className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors font-Dana '
+                                    placeholder='رمز عبور خود را وارد کنید'
+                                />
+                            </div>
+
+                            <button
+                                type="submit"
+                                disabled={loading}
+                                className={`w-full  bg-brown-600 hover:bg-brown-700 dark:bg-brown-700 dark:hover:bg-brown-600 text-white font-DanaMedium py-2 rounded-lg transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                            >
+                                {loading ? 'در حال ثبت نام...' : 'ثبت نام'}
+                            </button>
+
+                            {error && (
+                                <p className='text-center mt-6 text-red-600'>
+                                    {error}
+                                </p>
+                            )}
+                        </form>
+
+                        {/* Login Link */}
+                        <p className='font-Dana text-center mt-6 text-brown-600 dark:text-brown-300'>
+                            قبلاً ثبت نام کرده‌اید؟
+                            <Link href="/signin" className='text-brown-900 dark:text-white font-DanaMedium mr-1 hover:text-brown-600 dark:hover:text-brown-400 transition-colors'>
+                                وارد شوید
+                            </Link>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default SignUpPage
