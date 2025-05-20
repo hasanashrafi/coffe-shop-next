@@ -2,17 +2,24 @@
 import React from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes';
-import ProductCard from '../templates/ProductCard';
+import { useRouter } from 'next/router';
+
 import NavBar from './NavBar';
 import Footer from './Footer';
 import ShoppingCard from '../templates/ShoppingCard';
 
 function Layout({ children }) {
     const { systemTheme, theme, setTheme } = useTheme();
+    const router = useRouter();
     const currentTheme = theme === 'system' ? systemTheme : theme;
     const darkMode = () => {
         setTheme(theme === "dark" ? 'light' : "dark")
     }
+
+    // Check if current page is signup or signin
+    const isAuthPage = router.pathname === '/signup' || router.pathname === '/signin';
+    // Check if current page is main page
+    const isMainPage = router.pathname === '/';
 
     return (
         <>
@@ -32,56 +39,55 @@ function Layout({ children }) {
                 <symbol id='arrow' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                 </symbol>
-
             </svg>
 
-            <header className='flex justify-around items-center backdrop-blur-[6px] px-5 mx-auto bg-black/30 w-[95%] h-20 rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
-                <div className="flex justify-between w-full items-center">
-                    <NavBar />
+            {!isAuthPage && (
+                <header className='max-w-[95%] flex justify-around items-center backdrop-blur-[6px] z-20 px-5 mx-auto bg-black/30 h-20 rounded-3xl my-2 font-Dana sticky top-5 left-0 right-0'>
+                    <div className="flex justify-between w-full items-center">
+                        <NavBar />
 
-                    {/* left side items */}
-                    <div className="flex gap-x-5 justify-center text-orange-200 items-center">
-                        <div className="flex gap-x-2 items-center">
-                            {/* shopping box */}
-                            <div className='group relative cursor-pointer'>
-                                <svg className="size-7">
-                                    <use href="#shopping-cart"></use>
-                                </svg>
-                                <ShoppingCard />
+                        {/* left side items */}
+                        <div className="flex gap-x-5 justify-center text-orange-200 items-center">
+                            <div className="flex gap-x-2 items-center">
+                                {/* shopping box */}
+                                <div className='group relative cursor-pointer'>
+                                    <svg className="size-7">
+                                        <use href="#shopping-cart"></use>
+                                    </svg>
+                                    <ShoppingCard />
+                                </div>
+
+                                {/* dark mode button */}
+                                <button className='' onClick={darkMode}>
+                                    {
+                                        currentTheme === "dark" ?
+                                            <svg className="size-7">
+                                                <use href="#sun"></use>
+                                            </svg>
+                                            :
+                                            <svg className="size-7">
+                                                <use href="#night-mode"></use>
+                                            </svg>
+                                    }
+                                </button>
                             </div>
-
-                            {/* dark mode button */}
-                            <button className='' onClick={darkMode}>
-                                {
-                                    currentTheme === "dark" ?
-                                        <svg className="size-7">
-                                            <use href="#sun"></use>
-                                        </svg>
-                                        :
-                                        <svg className="size-7">
-                                            <use href="#night-mode"></use>
-                                        </svg>
-                                }
-                            </button>
-
+                            <span className="block w-px h-10 bg-white"></span>
+                            <Link href="/signup" className="w-full flex items-center gap-x-2">
+                                <svg className="w-7 h-7 rotate-180"><use href="#login"></use>
+                                </svg>
+                                <span className='text-sm lg:text-md'>ثبت نام|ورود
+                                </span>
+                            </Link>
                         </div>
-                        <span className="block w-px h-10 bg-white"></span>
-                        <Link href="/signin" className="w-full flex items-center gap-x-2">
-                            <svg className="w-7 h-7 rotate-180"><use href="#login"></use>
-                            </svg>
-                            <span className='text-sm lg:text-md'>ثبت نام|ورود
-                            </span>
-                        </Link>
                     </div>
-                </div>
-            </header>
+                </header>
+            )}
 
-            <div className='min-h-screen'>
+            <div className="min-h-screen">
                 {children}
             </div>
 
-            {/* footer */}
-            <Footer />
+            {!isAuthPage && <Footer />}
         </>
     )
 }
