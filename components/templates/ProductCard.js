@@ -8,7 +8,7 @@ function ProductCard(product) {
 
     return (
         <div
-           
+
             className="group relative  bg-white dark:bg-zinc-800 rounded-2xl p-4 shadow-light dark:shadow-dark hover:shadow-lg transition-all duration-300"
         >
             {/* Favorite Button */}
@@ -21,12 +21,13 @@ function ProductCard(product) {
                 <div className="relative">
                     <div className="w-[120px] h-[120px] rounded-xl overflow-hidden bg-brown-100 dark:bg-brown-900/20">
                         <Image
-                            src={image}
+                           priority
+                            src={ image}
                             className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
                             width={120}
                             height={120}
-                            priority
-                            alt={name}
+
+                            alt={`${name}`}
                         />
                     </div>
                     {discount > 0 && (
@@ -39,7 +40,7 @@ function ProductCard(product) {
                 {/* Product Info */}
                 <div className="flex flex-col justify-between flex-1">
                     <div>
-                        <h3 className="font-DanaMedium dark:text-white text-lg text-brown-900 mb-1">{name}</h3>
+                        <h3 className="font-DanaMedium dark:text-white text-lg text-brown-900 mb-1 line-clamp-2">{name}</h3>
                         <div className="flex items-center gap-x-2">
                             <span className="text-brown-600 dark:text-brown-300 text-sm font-Dana">
                                 {discount > 0 && (
