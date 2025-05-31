@@ -10,11 +10,20 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch('http://localhost:3004/api/products')
-        const data = await res.json()
+          const response = await fetch('https://backend-coffeshop-next-sljamxmwr-hasanashrafis-projects.vercel.app/api/products', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        })
+        if (!response.ok) {
+          throw new Error('Failed to fetch products')
+        }
+        const data = await response.json()
         setData(data)
       } catch (error) {
         setError(error)
+        console.error('Error fetching products:', error)
       } finally {
         setLoading(false)
       }
