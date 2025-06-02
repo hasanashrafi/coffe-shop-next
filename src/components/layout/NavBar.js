@@ -5,10 +5,10 @@ import React from 'react'
 function NavBar() {
   return (
     <nav className="flex items-center gap-x-6 lg:gap-x-9  h-14">
-    <div className="">
+    <div className="shrink-0">
         <Image src="/images/app-logo.png" priority width={100} height={100} alt="app-logo" className="w-[50px] h-[45px] " />
     </div>
-    <ul className="w-full h-full flex items-center text-md lg:text-md tracking-tightest gap-x-5 lg:gap-x-9 text-gray-300">
+    <ul className="w-full h-full flex items-center text-md lg:text-md tracking-tightest gap-x-5  lg:gap-x-9 text-gray-300">
         <li className="font-DanaMedium text-orange-200">
         <Link href="/">صفحه اصلی</Link>
         </li>
