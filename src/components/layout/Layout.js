@@ -7,8 +7,6 @@ import { useTheme } from 'next-themes';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import ShoppingCard from '../templates/ShoppingCard';
-import { FaShoppingCart } from 'react-icons/fa';
-import Image from 'next/image';
 
 function Layout({ children }) {
     const { systemTheme, theme, setTheme } = useTheme();
