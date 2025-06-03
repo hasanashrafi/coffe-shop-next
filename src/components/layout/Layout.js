@@ -197,52 +197,54 @@ function Layout({ children }) {
                             </div>
 
 
-                            <ul className='flex flex-col p-4 gap-y-6 child:pr-2 child:p-2 text-zinc-600 dark:text-white'>
-                                <li className='bg-orange-200/20 rounded-md pr-0 h-10'>
-                                    <Link href="/" className="flex items-center  gap-x-2 text-orange-400 dark:text-orange-300 hover:text-orange-300">
-                                        <svg className='size-5'>
-                                            <use href='#home'></use>
-                                        </svg>
-                                        صفحه اصلی
-                                    </Link>
+                            <div className='flex items-center pr-2.5 bg-orange-200/20 rounded-md h-10 mb-4'>
+                                <Link href="/" className="flex items-center  gap-x-2 text-orange-300 dark:text-orange-300 hover:text-orange-300">
+                                    <svg className='size-5'>
+                                        <use href='#home'></use>
+                                    </svg>
+                                    صفحه اصلی
+                                </Link>
+                            </div>
+                            <ul className='flex flex-col p-4 gap-y-6 child:pr-2.5 child:p-2 text-zinc-600 dark:text-white'>
+                                <li className=' pr-0 cu:text-orange-300 ' onClick={() => setDropDownMenu(!dropDownMenu)}>
+                                    <div className='flex items-center'>
+                                        <Link href="/" className="w-full flex items-center justify-between gap-x-2 text-orange-300 dark:text-white hover:text-orange-300">
+                                            <span className='flex items-center gap-x-2'>
+                                                <svg className='size-5'>
+                                                    <use href='#shop-bag'></use>
+                                                </svg>
+                                                فروشگاه
+                                            </span>
+                                            <span>
+                                                <svg className={`size-5 ${dropDownMenu && "rotate-180"} transition-all ease-in-out duration-300`} >
+                                                    <use href='#chevron-down'></use>
+                                                </svg>
+                                            </span>
+                                        </Link>
+                                    </div>
+                                    {dropDownMenu && (
+                                        <ul className='flex flex-col justify-start child-hover:list-disc text-sm text-zinc-600 mt-3 child-hover:text-orange-300  pr-7 transition-all ease-in-out duration-500 gap-y-3'>
+                                            <li>
+                                                <Link href="/" className=' '>قهوه ویژه</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/" className=' '>قهوه ویژه در سطح جهانی</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/" className=' '>قهوه درجه یک</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/" className=''>ترکیبات تجاری </Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/" className=' '>کپسول قهوه</Link>
+                                            </li>
+                                            <li>
+                                                <Link href="/" className=' '>قهوه زینو برزیلی</Link>
+                                            </li>
+                                        </ul>
+                                    )}
                                 </li>
-                                <li className='flex items-center pr-0 mt-4' onClick={() => setDropDownMenu(!dropDownMenu)}>
-                                    <Link href="/" className="w-full flex items-center justify-between gap-x-2 text-orange-300 dark:text-white hover:text-orange-300">
-                                        <span className='flex items-center gap-x-2'>
-                                            <svg className='size-5'>
-                                                <use href='#shop-bag'></use>
-                                            </svg>
-                                            فروشگاه
-                                        </span>
-                                        <span>
-                                            <svg className={`size-5 ${dropDownMenu && "rotate-180"} transition-all ease-in-out duration-300`} >
-                                                <use href='#chevron-down'></use>
-                                            </svg>
-                                        </span>
-                                    </Link>
-                                </li>
-                                {dropDownMenu && (
-                                    <ul className='flex flex-col justify-start list-outside child-hover:list-disc child-hover:text-orange-300  child:mr-4 transition-all ease-in-out duration-500 gap-y-4'>
-                                        <li>
-                                            <Link href="/" className='inline-flex '>قهوه ویژه</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/" className='inline-flex  '>قهوه ویژه در سطح جهانی</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/" className='inline-flex  '>قهوه درجه یک</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/" className='inline-flex  '>ترکیبات تجاری </Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/" className='inline-flex  '>کپسول قهوه</Link>
-                                        </li>
-                                        <li>
-                                            <Link href="/" className='inline-flex  '>قهوه زینو برزیلی</Link>
-                                        </li>
-                                    </ul>
-                                )}
                                 <li>
                                     <Link href="/" className="inline-flex items-center gap-x-2 text-zinc-600 dark:text-white hover:text-orange-300">
                                         <svg className='size-5'>
