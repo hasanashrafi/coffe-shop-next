@@ -156,7 +156,7 @@ function Layout({ children }) {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                {mobileMenu && (
+                {!mobileMenu && (
                     <>
 
                         <div className='font-Dana fixed top-0 bottom-0 right-0 w-64 pt-3 px-4 min-h-screen bg-white dark:bg-zinc-700 shadow-lg z-20 scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
@@ -213,7 +213,7 @@ function Layout({ children }) {
 
                             </div>
                         </div>
-                        <div className='overly fixed md:hidden inset-0 bg-black/40 w-full h-full z-10'></div>
+                        <div onClick={()=>setMobileMenu(!mobileMenu)} className='overly fixed md:hidden inset-0 bg-black/40 w-full h-full z-10'></div>
                     </>
                 )}
 
