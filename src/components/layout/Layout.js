@@ -206,7 +206,7 @@ function Layout({ children }) {
                                         صفحه اصلی
                                     </Link>
                                 </li>
-                                <li className='flex items-center pr-0 mt-4'>
+                                <li className='flex items-center pr-0 mt-4' onClick={() => setDropDownMenu(!dropDownMenu)}>
                                     <Link href="/" className="w-full flex items-center justify-between gap-x-2 text-orange-300 dark:text-white hover:text-orange-300">
                                         <span className='flex items-center gap-x-2'>
                                             <svg className='size-5'>
@@ -215,7 +215,7 @@ function Layout({ children }) {
                                             فروشگاه
                                         </span>
                                         <span>
-                                            <svg className={`size-5 ${dropDownMenu && "rotate-180"} transition-all ease-in-out duration-300`} onClick={() => setDropDownMenu(!dropDownMenu)}>
+                                            <svg className={`size-5 ${dropDownMenu && "rotate-180"} transition-all ease-in-out duration-300`} >
                                                 <use href='#chevron-down'></use>
                                             </svg>
                                         </span>
