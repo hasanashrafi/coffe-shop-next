@@ -12,7 +12,7 @@ function ShoppingCard() {
             image: "/images/products/p1.png"
         },
         {
-            id: 1,
+            id: 4,
             name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
             price: 150000,
             discount: 10,
