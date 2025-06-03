@@ -169,7 +169,7 @@ function Layout({ children }) {
                                         <use href='#logo-type'></use>
                                     </svg>
                                 </div>
-                                <svg className='size-5 dark:text-white text-zinc-600' onClick={()=>setMobileMenu(!mobileMenu)}>
+                                <svg className='size-5 dark:text-white text-zinc-600' onClick={() => setMobileMenu(!mobileMenu)}>
                                     <use href='#close'></use>
                                 </svg>
                             </div>
@@ -210,13 +210,11 @@ function Layout({ children }) {
                                     سبد خرید
                                 </Link>
 
-
                             </div>
                         </div>
-                        <div onClick={()=>setMobileMenu(!mobileMenu)} className='overly fixed md:hidden inset-0 bg-black/40 w-full h-full z-10'></div>
+                        <div onClick={() => setMobileMenu(!mobileMenu)} className='overly fixed md:hidden inset-0 bg-black/40 w-full h-full z-10'></div>
                     </>
                 )}
-
             </div>
 
             <div className="min-h-screen">
