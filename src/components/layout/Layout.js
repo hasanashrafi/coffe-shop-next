@@ -156,7 +156,7 @@ function Layout({ children }) {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                {!mobileMenu && (
+                {mobileMenu && (
                     <>
 
                         <div className='font-Dana fixed top-0 bottom-0 right-0 w-64 pt-3 px-4 min-h-screen bg-white dark:bg-zinc-700 shadow-lg z-20 scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'>
@@ -169,7 +169,7 @@ function Layout({ children }) {
                                         <use href='#logo-type'></use>
                                     </svg>
                                 </div>
-                                <svg className='size-5 dark:text-white text-zinc-600'>
+                                <svg className='size-5 dark:text-white text-zinc-600' onClick={()=>setMobileMenu(!mobileMenu)}>
                                     <use href='#close'></use>
                                 </svg>
                             </div>
