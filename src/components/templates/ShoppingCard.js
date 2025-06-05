@@ -43,12 +43,12 @@ function ShoppingCard() {
                 <span className='text-gray-400'>
                     {sampleProducts.length} مورد
                 </span>
-                <a href='#' className='text-orange-300 gap-x-2 w-fit flex items-center'>
+                <Link href='/' className='text-orange-300 gap-x-2 w-fit flex items-center'>
                     مشاهده سبد خرید
                     <svg className="size-4">
                         <use href="#arrow"></use>
                     </svg>
-                </a>
+                </Link>
             </div>
 
             {/* products */}
