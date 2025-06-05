@@ -4,7 +4,7 @@ import NavBar from './NavBar';
 import ShoppingCard from '../templates/ShoppingCard';
 import ThemeToggle from './ThemeToggle';
 
-const DesktopHeader = ({ currentTheme, darkMode }) => {
+const DesktopHeader = () => {
     return (
         <header className='fixed lg:w-[95%] w-[98%] hidden md:flex justify-between items-center backdrop-blur-[6px] z-20 px-3 lg:px-10 mx-auto bg-black/30 h-20 rounded-3xl my-2 font-Dana top-9 left-0 right-0'>
             <div className="flex justify-between w-full items-center">
