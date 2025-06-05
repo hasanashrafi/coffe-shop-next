@@ -7,18 +7,18 @@ import { store } from '@/store/store';
 
 export default function App({ Component, pageProps }) {
   return (
- <>
+    <>
 
       <Head>
         <title>Coffee-Shop</title>
-        <link rel="icon" href="/favicon.png" defaultTheme="system" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
-      <ThemeProvider attribute="class">
+      <ThemeProvider attribute="class" defaultTheme="system">
         <Layout>
           <Component {...pageProps} />
         </Layout>
       </ThemeProvider>
-   
- </>
+
+    </>
   )
 }
