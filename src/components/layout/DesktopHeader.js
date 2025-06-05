@@ -17,11 +17,11 @@ const DesktopHeader = () => {
                             </svg>
                             <ShoppingCard />
                         </div>
-                        <ThemeToggle className="text-gray-300 hover:text-orange-300 transition-colors" />
+                        <ThemeToggle className="text-gray-300 hover:text-orange-300 transition-colors " />
                     </div>
                     <span className="block w-px h-10 bg-white"></span>
                     <Link href="/signup" className="w-full flex items-center gap-x-2">
-                        <svg className="w-7 h-7 rotate-180"><use href="#login"></use></svg>
+                        <svg className="size-7 rotate-180"><use href="#login"></use></svg>
                         <span className='hidden xl:inline-block text-sm lg:text-md'>ثبت نام|ورود</span>
                     </Link>
                 </div>
