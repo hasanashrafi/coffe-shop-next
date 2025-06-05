@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 
-const ThemeToggle = ({ className = '', label = true }) => {
+const ThemeToggle = () => {
     const { systemTheme, theme, setTheme } = useTheme();
     const currentTheme = theme === 'system' ? systemTheme : theme;
 
@@ -14,19 +14,19 @@ const ThemeToggle = ({ className = '', label = true }) => {
     };
 
     return (
-        <button className={className} onClick={toggleTheme}>
+        <button className='flex items-center gap-x-2 text-orange-300' onClick={toggleTheme}>
             {currentTheme === 'dark' ? (
-                <svg className="size-7">
+                <svg className='size-5'>
                     <use href="#sun"></use>
                 </svg>
             ) : (
-                <svg className="size-7">
+                <svg className='size-5'>
                     <use href="#night-mode"></use>
                 </svg>
             )}
-            {label && (
-                <span className="ml-2">{currentTheme !== 'dark' ? 'تم تیره' : 'تم لایت'}</span>
-            )}
+
+            <span className="ml-2">{currentTheme !== 'dark' ? 'تم تیره' : 'تم لایت'}</span>
+
         </button>
     );
 };

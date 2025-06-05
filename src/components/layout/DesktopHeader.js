@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import NavBar from './NavBar';
 import ShoppingCard from '../templates/ShoppingCard';
-import DarkModeButton from './DarkModeButton';
+import ThemeToggle from './ThemeToggle';
 
 const DesktopHeader = ({ currentTheme, darkMode }) => {
     return (
@@ -17,7 +17,7 @@ const DesktopHeader = ({ currentTheme, darkMode }) => {
                             </svg>
                             <ShoppingCard />
                         </div>
-                        <DarkModeButton currentTheme={currentTheme} darkMode={darkMode} />
+                        <ThemeToggle className="text-gray-300 hover:text-orange-300 transition-colors" />
                     </div>
                     <span className="block w-px h-10 bg-white"></span>
                     <Link href="/signup" className="w-full flex items-center gap-x-2">

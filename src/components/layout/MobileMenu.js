@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 const MobileMenu = ({ open, setOpen, dropDownMenu, setDropDownMenu }) => {
     if (!open) return null;
@@ -110,6 +111,14 @@ const MobileMenu = ({ open, setOpen, dropDownMenu, setDropDownMenu }) => {
                         ثبت نام | ورود
                     </Link>
                     {/* ThemeToggle will be used here */}
+                    <ThemeToggle />
+
+                    <Link href="/" className='inline-flex items-center gap-x-2 text-orange-300'>
+                        <svg className='size-5 '>
+                            <use href='#shopping'></use>
+                        </svg>
+                        سبد خرید
+                    </Link>
                 </div>
             </div>
             <div onClick={() => setOpen(false)} className='overly fixed md:hidden transition-all inset-0 bg-black/40 w-full h-full z-10'></div>
