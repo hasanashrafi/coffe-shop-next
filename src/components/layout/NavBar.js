@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import Links from './Links'
 
 
 function NavBar() {
@@ -17,14 +18,9 @@ function NavBar() {
           <Link
             href='/products'
             className=' group-hover:text-orange-300 transition-colors cursor-pointer'>فروشگاه</Link>
-          <div className=' bg-white invisible  opacity-0 mt-2 absolute z-50 delay-75  w-52 bg-whitedrop-shadow-lg p-6 rounded-2xl border-t-4 border-t-yellow-500 shadow-dark  group-hover:opacity-100 leading-[56px]  group-hover:visible tracking-normal top-full text-base transition-all ease-in-out space-y-4 dark:bg-zinc-700 dark:child:text-white dark:child-hover:text-orange-300 first-line:text-yellow-500 child:block  child:text-sm  child-hover:text-orange-300 child:transition-colors child:text-slate-900'>
-            <Link href='#'>قهوه ویژه</Link>
-            <Link href='#'>قهوه ویژه در سطح جهانی</Link>
-            <Link href='#'>قهوه درجه یک</Link>
-            <Link href='#'>ترکیبات تجاری</Link>
-            <Link href='#'>کپسول قهوه</Link>
-            <Link href='#'>قهوه زینو برزیلی</Link>
-          </div>
+          <ul className=' bg-white invisible  opacity-0 mt-2 absolute z-50 delay-75  w-52 drop-shadow-lg p-6 rounded-2xl border-t-4 border-t-yellow-500 shadow-dark  group-hover:opacity-100 leading-[56px]  group-hover:visible tracking-normal top-full text-base transition-all ease-in-out space-y-4 dark:bg-zinc-700 dark:child:text-white dark:child-hover:text-orange-300 first-line:text-yellow-500 child:block  child:text-sm  child-hover:text-orange-300 child:transition-colors child:text-slate-900'>
+           <Links/>
+          </ul>
         </li>
         <li>
           <Link href="">دیکشنری </Link>
