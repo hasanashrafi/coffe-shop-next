@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ThemeToggle from './ThemeToggle';
+import Links from './Links';
 
 const MobileMenu = ({ open, setOpen, dropDownMenu, setDropDownMenu }) => {
     if (!open) return null;
@@ -48,25 +49,9 @@ const MobileMenu = ({ open, setOpen, dropDownMenu, setDropDownMenu }) => {
                         </div>
                         {dropDownMenu && (
                             <ul className='flex flex-col justify-start  text-sm text-zinc-600 dark:text-white/90 mt-3 child-hover:text-orange-300  pr-7 transition-all ease-in-out duration-500 gap-y-3'>
-                                <li>
-                                    <Link href="/" className=' '>قهوه ویژه</Link>
-                                </li>
-                                <li>
-                                    <Link href="/" className=' '>قهوه ویژه در سطح جهانی</Link>
-                                </li>
-                                <li>
-                                    <Link href="/" className=' '>قهوه درجه یک</Link>
-                                </li>
-                                <li>
-                                    <Link href="/" className=''>ترکیبات تجاری </Link>
-                                </li>
-                                <li>
-                                    <Link href="/" className=' '>کپسول قهوه</Link>
-                                </li>
-                                <li>
-                                    <Link href="/" className=' '>قهوه زینو برزیلی</Link>
-                                </li>
+                                <Links />
                             </ul>
+
                         )}
                     </li>
                     <li>
