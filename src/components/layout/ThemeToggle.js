@@ -16,16 +16,16 @@ const ThemeToggle = () => {
     return (
         <button className='flex items-center gap-x-2 text-orange-300' onClick={toggleTheme}>
             {currentTheme === 'dark' ? (
-                <svg className='size-5'>
+                <svg className='size-5 md:size-7 md:text-orange-200'>
                     <use href="#sun"></use>
                 </svg>
             ) : (
-                <svg className='size-5'>
+                <svg className='size-5 md:size-7 md:text-orange-200'>
                     <use href="#night-mode"></use>
                 </svg>
             )}
 
-            <span className="ml-2">{currentTheme !== 'dark' ? 'تم تیره' : 'تم لایت'}</span>
+            <span className="ml-2 md:hidden ">{currentTheme !== 'dark' ? 'تم تیره' : 'تم لایت'}</span>
 
         </button>
     );
