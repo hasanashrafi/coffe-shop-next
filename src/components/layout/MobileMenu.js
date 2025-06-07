@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React, { useState } from 'react'
-import MobileShoppingCard from '../templates/MobileShoppingCard';
+import MobileShoppingCard from '../templates/MobileShoppingCart';
 import Links from './Links';
 
 function MobileMenu({ darkMode, currentTheme }) {
