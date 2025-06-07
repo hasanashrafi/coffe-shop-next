@@ -1,12 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { useTheme } from 'next-themes';
-
-
-import NavBar from './NavBar';
 import Footer from './Footer';
-import ShoppingCard from '../templates/ShoppingCard';
 import Header from './Header';
 import MobileMenu from './MobileMenu';
 
