@@ -1,40 +1,10 @@
 import React from 'react'
 import ProductCard from './ProductCard'
 import Link from 'next/link';
+import sampleProducts from '@/data/data';
 
 function ShoppingCard() {
-    const sampleProducts = [
-        {
-            id: 1,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 4,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 2,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 3,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-    ];
 
-    
 
     return (
         <div className='invisible group-hover:visible opacity-0 group-hover:opacity-100 scroll-smooth delay-75 left-0 mt-2 top-full absolute z-50 w-[400px] leading-[56px] bg-white drop-shadow-lg p-6 rounded-2xl border-t-4 border-t-yellow-500 shadow-dark overflow-hidden tracking-normal transition-all ease-in-out dark:bg-zinc-700'>
