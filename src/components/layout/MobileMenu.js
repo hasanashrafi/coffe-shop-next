@@ -10,7 +10,6 @@ function MobileMenu({ darkMode, currentTheme }) {
 
     const mobileShoppingCardHandler = () => {
         setMobileShoppingCard(mobileShoppingCard => !mobileShoppingCard)
-        setMobileMenu(mobileMenu => !mobileMenu)
     }
 
     return (
