@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 
 import NavBar from './layout/NavBar';
 
-function SignUpPage() {
+const SignUpPage = () => {
     const router = useRouter();
     const [formData, setFormData] = useState({
         username: "",
@@ -59,12 +59,9 @@ function SignUpPage() {
     };
     return (
         <>
-            <div className='absolute bg-black/70 p-2 w-full font-DanaMedium'>
-                <NavBar />
-            </div>
             <div className=' bg-[url("/images/background/coffe-bg.jpg")] bg-cover bg-center min-h-screen  flex items-center justify-center'>
                 <div className='w-full max-w-md mx-4'>
-                    <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-xl shadow-brown-300/90'>
+                    <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-md shadow-brown-300/90'>
                         {/* Logo */}
                         <div className='flex justify-center mb-8'>
                             <div className='bg-brown-600 p-4 rounded-full'>
