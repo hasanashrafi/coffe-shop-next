@@ -1,47 +1,19 @@
 import Link from 'next/link'
 import React from 'react'
 import ProductCard from './ProductCard';
+import sampleProducts from '@/data/data';
 
 function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
-    const sampleProducts = [
-        {
-            id: 1,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 4,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 2,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-        {
-            id: 3,
-            name: "قهوه اسپرسو بن مانو مدل پرسکا 250 گرمی",
-            price: 150000,
-            discount: 10,
-            image: "/images/products/p1.png"
-        },
-    ];
+
 
 
     return (
         <>
             <div
-                className={`font-Dana fixed flex flex-col justify-between top-0 bottom-0 ${mobileShoppingCard ? 'left-0' : '-left-64'} transition-all ease-in-out w-64  px-4 min-h-screen bg-white dark:bg-zinc-700 shadow-lg z-20 scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}
+                className={`font-Dana fixed flex flex-col justify-between  top-0 bottom-0 ${mobileShoppingCard ? 'left-0' : '-left-64'} transition-all ease-in-out w-64  px-4 min-h-screen bg-white dark:bg-zinc-700 shadow-lg z-20 scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]`}
             >
                 {/* header cart */}
-                <div className="flex justify-between items-center p-2 pb-5 mb-6 border-b border-b-gray-300 dark:border-b-white/10">
+                <div className="flex justify-between items-center py-4  mb-4 border-b border-b-gray-300 dark:border-b-white/10">
                     <svg
                         className="size-5 dark:text-white text-zinc-700 font-DanaMedium"
                         onClick={() =>
@@ -58,7 +30,7 @@ function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
                 </div>
 
                 {/* body cart */}
-                <div className={` child:pb-5 child:mb-5  ${sampleProducts.length > 3 ? 'max-h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' : ''
+                <div className={`divide-y rounded-none divide-gray-300   child:rounded-none  ${sampleProducts.length > 3 ? 'max-h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' : ''
                     }`}>
                     {sampleProducts.map(product => (
                         <ProductCard key={product.id} {...product} />
