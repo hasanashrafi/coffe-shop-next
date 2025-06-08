@@ -20,7 +20,7 @@ function Loader() {
                 </div>
             </div>
 
-            <h2 className="text-2xl font-bold text-amber-800 mt-8">در حال بارگذازی قهوه ها</h2>
+            <h2 className="text-2xl font-bold text-amber-800 mt-8">در حال بارگذاری قهوه ها</h2>
         </div>
     )
 }
