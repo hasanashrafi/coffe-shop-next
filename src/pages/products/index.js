@@ -10,7 +10,7 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(process.env.NEXT_PUBLIC_BASE_URL, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
