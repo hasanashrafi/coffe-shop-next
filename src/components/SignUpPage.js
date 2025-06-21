@@ -3,12 +3,11 @@ import Link from 'next/link'
 import { FaCoffee } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
-import NavBar from './layout/NavBar';
 
 const SignUpPage = () => {
     const router = useRouter();
     const [formData, setFormData] = useState({
-        username: "",
+        name: "",
         email: "",
         password: ""
     });
@@ -26,31 +25,55 @@ const SignUpPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        // Add validation
+        if (!formData.name || !formData.email || !formData.password) {
+            setError('لطفاً تمام فیلدها را پر کنید');
+            return;
+        }
+
+        if (formData.password.length < 6) {
+            setError('رمز عبور باید حداقل ۶ کاراکتر باشد');
+            return;
+        }
+
+        if (!formData.email.includes('@')) {
+            setError('لطفاً یک ایمیل معتبر وارد کنید');
+            return;
+        }
+
         try {
             setLoading(true);
             setError(null);
 
-            const response = await fetch("http://localhost:3004/api/users/signup", {
+            const response = await fetch('/api/signup', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(formData)
+                body: JSON.stringify({
+                    ...formData,
+                    email: formData.email.toLowerCase()
+                })
             });
 
+            const data = await response.json();
+            console.log('Signup response:', data);
+
             if (!response.ok) {
-                throw new Error('Signup failed');
+                throw new Error(data.message || 'ثبت نام ناموفق بود');
             }
 
-            const data = await response.json();
-            console.log(data)
+            if (data.success) {
+                // Store the new token and user data
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("user", JSON.stringify(data.user));
 
-            // Store the new token and user data
-            localStorage.setItem("token", data.token);
-            localStorage.setItem("user", JSON.stringify(data.user));
-
-            // Redirect to home page
-            router.push("/");
+                // Redirect to home page
+                router.push("/");
+            } else {
+                throw new Error(data.message || 'ثبت نام ناموفق بود');
+            }
         } catch (error) {
             setError(error.message);
         } finally {
@@ -81,9 +104,9 @@ const SignUpPage = () => {
                                     نام کاربری
                                 </label>
                                 <input
-                                    name="username"
+                                    name="name"
                                     onChange={handleChange}
-                                    value={formData.username}
+                                    value={formData.name}
                                     type="text"
                                     className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors font-Dana'
                                     placeholder='نام کاربری خود را وارد کنید'
