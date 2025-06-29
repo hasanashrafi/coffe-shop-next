@@ -38,8 +38,17 @@ module.exports = {
       letterSpacing: {
         "tightest": "0.065em"
       },
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          lg: "0.625rem",
+        },
+      }
     },
+
   },
+
   plugins: [
     function ({ addVariant }) {
       addVariant('child', '& > *');
