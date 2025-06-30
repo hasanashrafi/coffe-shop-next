@@ -46,6 +46,7 @@ module.exports = {
       backgroundImage: {
         "home-mobile": "url(/images/headerBgMobile.webp)",
         "home-desktop": "url(/images/headerBgDesktop.webp)",
+        "products": "url(/images/products-bg.png)",
       },
       screens:{
         "xs":"480px",

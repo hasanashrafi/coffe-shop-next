@@ -18,12 +18,12 @@ export default function Home() {
               که در نواحی مختلف کمربند قهوه کشت میشود.
             </p>
           </div>
-        {/* rings */}
-        <div className="hidden absolute  left-0 right-0 bottom-0 mx-auto translate-y-2/4  md:flex items-center justify-center w-[203px] h-[203px] border rounded-full border-white/25">
-          <div className=" flex items-center justify-center w-[145px] h-[145px] border rounded-full border-white/50">
-            <div className=" w-[95px] h-[95px] border rounded-full border-white/80"></div>
+          {/* rings */}
+          <div className="hidden absolute  left-0 right-0 bottom-0 mx-auto translate-y-2/4  md:flex items-center justify-center w-[203px] h-[203px] border rounded-full border-white/25">
+            <div className=" flex items-center justify-center w-[145px] h-[145px] border rounded-full border-white/50">
+              <div className=" w-[95px] h-[95px] border rounded-full border-white/80"></div>
+            </div>
           </div>
-        </div>
         </div>
 
         {/* curve */}
@@ -38,6 +38,11 @@ export default function Home() {
             <use href="#chevron-down"></use>
           </svg>
         </div>
+      </section>
+
+      {/* products section */}
+      <section className="products  min-h-screen bg-products">
+
       </section>
     </main>
   );
