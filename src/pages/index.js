@@ -1,9 +1,10 @@
+import Link from "next/link";
 
 
 export default function Home() {
   return (
-    <main className=" ">
-      <section className=" home  relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  md:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
+    <main className="font-Dana ">
+      <section className="home relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  md:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
         <div className="container relative overflow-y-hidden h-full md:min-h-screen  flex justify-end items-center">
           <div className="text-white ">
             <h2 className="md:text-6xl/[62px] mb-0.5 md:mb-2 font-bold text-2xl font-MorabbaBold ">
@@ -41,8 +42,21 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      <section className="products  min-h-screen ">
-
+      <section className=" products  md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
+        <div className="container">
+          <div className="flex items-center justify-between">
+            <div className="font-MorabbaMedium ">
+              <h3 className=" text-5xl text-zinc-700 dark:text-white">جدیدترین محصولات</h3>
+              <p className="text-3xl font-MorabbaLight mt-1.5 text-zinc-700 dark:text-white">فراوری شده از دانه های قهوه</p>
+            </div>
+            <Link href="/" className="flex items-center gap-x-1 text-orange-300">
+              مشاهده همه محصولات
+              <svg className="size-5 ">
+                <use href="#chevron-left"></use>
+              </svg>
+            </Link>
+          </div>
+        </div>
       </section>
     </main>
   );
