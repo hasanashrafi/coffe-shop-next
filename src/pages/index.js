@@ -41,7 +41,7 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      <section className="products  min-h-screen bg-products">
+      <section className="products  min-h-screen ">
 
       </section>
     </main>
