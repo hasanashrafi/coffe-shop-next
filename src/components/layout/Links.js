@@ -5,22 +5,22 @@ function Links() {
     return (
       <>
             <li>
-                <Link href="/" className=' '>قهوه ویژه</Link>
+                <Link href="/" >قهوه ویژه</Link>
             </li>
             <li>
-                <Link href="/" className=' '>قهوه ویژه در سطح جهانی</Link>
+                <Link href="/" >قهوه ویژه در سطح جهانی</Link>
             </li>
             <li>
-                <Link href="/" className=' '>قهوه درجه یک</Link>
+                <Link href="/" >قهوه درجه یک</Link>
             </li>
             <li>
-                <Link href="/" className=''>ترکیبات تجاری </Link>
+                <Link href="/" >ترکیبات تجاری </Link>
             </li>
             <li>
-                <Link href="/" className=' '>کپسول قهوه</Link>
+                <Link href="/" >کپسول قهوه</Link>
             </li>
             <li>
-                <Link href="/" className=' '>قهوه زینو برزیلی</Link>
+                <Link href="/" >قهوه زینو برزیلی</Link>
             </li>
       </>
     )
