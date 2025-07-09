@@ -125,7 +125,7 @@ function MobileMenu({ darkMode, currentTheme }) {
 
                             {/* footer mobile menu */}
                             <div className='space-y-6 pt-8 mt-8 px-2.5 border-t border-t-gray-100 dark:border-t-white/10'>
-                                <Link href="/" className='inline-flex  items-center gap-x-2 text-orange-300'>
+                                <Link href="/signup" className='inline-flex  items-center gap-x-2 text-orange-300'>
                                     <svg className='size-5 '>
                                         <use href='#login'></use>
                                     </svg>
