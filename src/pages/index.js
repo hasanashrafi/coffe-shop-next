@@ -1,7 +1,26 @@
+import ProductsPage from "@/components/ProductsPage";
+
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 
 export default function Home() {
+  const [data, setData] = useState([])
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:3004/api/products')
+        if (!response.ok) throw new Error('Failed to fetch products')
+        const data = await response.json()
+        console.log(data)
+        setData(data || [])
+      } catch (error) {
+
+        console.error('Error fetching products:', error)
+      }
+    }
+    fetchProducts()
+  }, [])
   return (
     <main className="font-Dana ">
       <section className="home relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  md:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
@@ -42,20 +61,41 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      <section className=" products  md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
+      <section className=" products pt-8 md:pt-24 lg:pt-48 md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
         <div className="container">
-          <div className="flex items-center justify-between">
+          {/* section head */}
+          <div className="flex items-end justify-between mb-5 md:mb-12">
             <div className="font-MorabbaMedium ">
-              <h3 className=" text-5xl text-zinc-700 dark:text-white">جدیدترین محصولات</h3>
-              <p className="text-3xl font-MorabbaLight mt-1.5 text-zinc-700 dark:text-white">فراوری شده از دانه های قهوه</p>
+              <h3 className="text-2xl md:text-5xl text-zinc-700 dark:text-white">جدیدترین محصولات</h3>
+              <p className="text-lg md:text-3xl font-MorabbaLight mt-0.5 md:mt-1.5 text-zinc-700 dark:text-white">فراوری شده از دانه های قهوه</p>
             </div>
-            <Link href="/" className="flex items-center gap-x-1 text-orange-300">
-              مشاهده همه محصولات
+            <Link href="/products" className="flex items-center text-base md:text-xl md:gap-x-1 text-orange-300 transition-colors md:hover:bg-orange-300/20 h-10 pr-3 pl-1 rounded-md tracking-tightest">
+              <span className="hidden md:inline-block">
+                مشاهده همه محصولات
+              </span>
+              <span className="md:hidden">
+                مشاهده همه
+              </span>
               <svg className="size-5 ">
                 <use href="#chevron-left"></use>
               </svg>
             </Link>
           </div>
+
+          {/* section body */}
+          <ProductsPage data={data} />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 child:h-[460px] child:bg-white child:dark:bg-zinc-700 child:rounded-xl">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
         </div>
       </section>
     </main>
