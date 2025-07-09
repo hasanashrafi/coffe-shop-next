@@ -7,17 +7,18 @@ function SignInPage() {
   const router = useRouter();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [remember, setRemember] = useState(false);
 
   const signin = async (e) => {
     e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
+    // Use state values instead of e.target
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch('/api/users/signin', {
+      const response = await fetch('http://localhost:3004/api/users/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -29,12 +30,12 @@ function SignInPage() {
       });
 
       const data = await response.json();
-      console.log('Signin response:', data);
+      console.log('Signin response:', data.data);
 
       if (response.ok) {
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('user', JSON.stringify(data.user));
-        router.push('/');
+        localStorage.setItem('token', data.data.token);
+        localStorage.setItem('user', JSON.stringify(data.data.user.email));
+        router.push('/dashboard');
       } else {
         setError(data.message || 'ورود ناموفق بود');
       }
@@ -72,6 +73,8 @@ function SignInPage() {
                 type="email"
                 className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors'
                 placeholder='ایمیل خود را وارد کنید'
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
             </div>
 
@@ -84,12 +87,14 @@ function SignInPage() {
                 type="password"
                 className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors'
                 placeholder='رمز عبور خود را وارد کنید'
+                value={password}
+                onChange={e => setPassword(e.target.value)}
               />
             </div>
 
             <div className='flex items-center justify-between'>
               <label className='flex items-center'>
-                <input type="checkbox" className='ml-2' />
+                <input type="checkbox" className='ml-2' checked={remember} onChange={e => setRemember(e.target.checked)} />
                 <span className='text-sm text-brown-600 dark:text-brown-300'>مرا به خاطر بسپار</span>
               </label>
               <Link href="/forgot-password" className='text-sm text-brown-600 dark:text-brown-300 hover:text-brown-900 dark:hover:text-white transition-colors'>
