@@ -10,24 +10,14 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/products`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        })
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch products')
-        }
-
+        const response = await fetch('http://localhost:3004/api/products')
+        if (!response.ok) throw new Error('Failed to fetch products')
         const data = await response.json()
-        setData(data)
-
+        console.log(data)
+        setData(data || [])
       } catch (error) {
         setError(error)
         console.error('Error fetching products:', error)
-
       } finally {
         setLoading(false)
       }
@@ -36,7 +26,7 @@ function Products() {
   }, [])
 
   if (loading) return <Loader />
-  if (error) return <div>Error: {error.message}</div>
+  if (error) return <div className='h-screen flex items-center justify-center bg-red-400 text-3xl'>Error: {error.message}</div>
 
   return (
     <ProductsPage data={data} />
