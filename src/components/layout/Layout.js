@@ -121,7 +121,7 @@ function Layout({ children }) {
                 currentTheme={currentTheme}
                 darkMode={darkMode}
             />
-            <div className="">
+            <div className="min-h-screen">
                 {children}
             </div>
             <Footer />
