@@ -27,7 +27,7 @@ const SignUpPage = () => {
         e.preventDefault();
 
         // Add validation
-        if (!formData.name || !formData.email || !formData.password) {
+        if (!formData.username || !formData.email || !formData.password) {
             setError('لطفاً تمام فیلدها را پر کنید');
             return;
         }
@@ -46,7 +46,7 @@ const SignUpPage = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('/api/signup', {
+            const response = await fetch('http://localhost:3004/api/users/signup', {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -70,7 +70,7 @@ const SignUpPage = () => {
                 localStorage.setItem("user", JSON.stringify(data.user));
 
                 // Redirect to home page
-                router.push("/");
+                router.push("/signin");
             } else {
                 throw new Error(data.message || 'ثبت نام ناموفق بود');
             }
@@ -82,7 +82,7 @@ const SignUpPage = () => {
     };
     return (
         <>
-            <div className=' bg-[url("/images/background/coffe-bg.jpg")] bg-cover bg-center min-h-screen  flex items-center justify-center'>
+            <div className='  bg-cover bg-center min-h-screen  flex items-center justify-center'>
                 <div className='w-full max-w-md mx-4'>
                     <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-md shadow-brown-300/90'>
                         {/* Logo */}
@@ -104,9 +104,9 @@ const SignUpPage = () => {
                                     نام کاربری
                                 </label>
                                 <input
-                                    name="name"
+                                    name="username"
                                     onChange={handleChange}
-                                    value={formData.name}
+                                    value={formData.username}
                                     type="text"
                                     className='w-full px-4 py-2 rounded-lg bg-white dark:bg-zinc-700 border border-brown-200 dark:border-zinc-600 focus:border-brown-600 dark:focus:border-brown-400 outline-none transition-colors font-Dana'
                                     placeholder='نام کاربری خود را وارد کنید'
