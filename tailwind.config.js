@@ -47,6 +47,7 @@ module.exports = {
         "home-mobile": "url(/images/headerBgMobile.webp)",
         "home-desktop": "url(/images/headerBgDesktop.webp)",
         'products-hero': "linear-gradient(rgba(243,244,246,0.65), rgba(243,244,246,0.65)), url('/images/products-bg.png')",
+        'dashboard': " url('/images/dashboard.jpg')",
       },
       screens:{
         "xs":"480px",
