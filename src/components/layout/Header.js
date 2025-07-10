@@ -1,9 +1,17 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ShoppingCard from '../templates/ShoppingCard'
 import NavBar from './NavBar'
 
-function Header({darkMode,currentTheme}) {
+function Header({ darkMode, currentTheme }) {
+    const [isLogin, setIsLogin] = useState(false)
+    
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            setIsLogin(true)
+        }
+    }, [])
     return (
         <>
 
@@ -38,12 +46,19 @@ function Header({darkMode,currentTheme}) {
                             </button>
                         </div>
                         <span className="block w-px h-10 bg-white"></span>
-                        <Link href="/signup" className="w-full flex items-center gap-x-2">
-                            <svg className="w-7 h-7 rotate-180"><use href="#login"></use>
-                            </svg>
-                            <span className='hidden xl:inline-block text-sm lg:text-md'>ثبت نام|ورود
-                            </span>
-                        </Link>
+                        {isLogin ?
+                            <Link href="/dashboard" className='inline-flex  items-center gap-x-2 text-orange-300'>
+                                <svg className='size-5 '>
+                                    <use href='#user'></use>
+                                </svg>
+                                پروفایل
+                            </Link> :
+                            <Link href="/signup" className='inline-flex  items-center gap-x-2 text-orange-300'>
+                                <svg className='size-5 '>
+                                    <use href='#login'></use>
+                                </svg>
+                                ثبت نام | ورود
+                            </Link>}
                     </div>
                 </div>
             </header>
