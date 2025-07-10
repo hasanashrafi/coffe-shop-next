@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import MobileShoppingCard from '../templates/MobileShoppingCart';
 import Links from './Links';
 
@@ -7,11 +7,18 @@ function MobileMenu({ darkMode, currentTheme }) {
     const [mobileMenu, setMobileMenu] = useState(false);
     const [dropDownMenu, setDropDownMenu] = useState(false)
     const [mobileShoppingCard, setMobileShoppingCard] = useState(false)
+    const [isLogin,setIsLogin] = useState(false)
 
     const mobileShoppingCardHandler = () => {
         setMobileShoppingCard(mobileShoppingCard => !mobileShoppingCard)
     }
 
+    useEffect(()=>{
+        const token = localStorage.getItem('token')
+        if(token){
+            setIsLogin(true)
+        }
+    },[])
     return (
 
         <div className='flex md:hidden justify-between items-center w-full px-4 bg-white dark:bg-zinc-700 h-16 relative'>
@@ -125,12 +132,19 @@ function MobileMenu({ darkMode, currentTheme }) {
 
                             {/* footer mobile menu */}
                             <div className='space-y-6 pt-8 mt-8 px-2.5 border-t border-t-gray-100 dark:border-t-white/10'>
+                                {isLogin ?
+                                <Link href="/dashboard" className='inline-flex  items-center gap-x-2 text-orange-300'>
+                                    <svg className='size-5 '>
+                                        <use href='#user'></use>
+                                    </svg>
+                                      پروفایل
+                                </Link> :
                                 <Link href="/signup" className='inline-flex  items-center gap-x-2 text-orange-300'>
                                     <svg className='size-5 '>
                                         <use href='#login'></use>
                                     </svg>
                                     ثبت نام | ورود
-                                </Link>
+                                </Link>}
                                 {/* dark mode button */}
                                 <button className='flex items-center gap-x-2 text-orange-300'
                                     onClick={darkMode}>
