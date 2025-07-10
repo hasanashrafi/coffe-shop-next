@@ -2,6 +2,9 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 import { FaCoffee } from 'react-icons/fa'
 import { useRouter } from 'next/router'
+import { loginUser } from '@/utils/api';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SignInPage() {
   const router = useRouter();
@@ -13,41 +16,48 @@ function SignInPage() {
 
   const signin = async (e) => {
     e.preventDefault();
-    // Use state values instead of e.target
     setLoading(true);
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:3004/api/users/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          email: email.toLowerCase(),
-          password
-        })
-      });
+      const response = await loginUser({ email, password });
+      // Axios: response.data is the actual payload
+      const data = response.data.data;
+      console.log('Signin response:', data);
 
-      const data = await response.json();
-      console.log('Signin response:', data.data);
-
-      if (response.ok) {
-        localStorage.setItem('token', data.data.token);
-        localStorage.setItem('user', JSON.stringify(data.data.user.email));
+      if (data.token) {
+        toast.success("با موفقیت وارد شدید")
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('user', JSON.stringify(data.user));
         router.push('/dashboard');
       } else {
-        setError(data.message || 'ورود ناموفق بود');
+        toast.error(data.message || 'ورود ناموفق بود');
       }
     } catch (error) {
-      setError('خطا در ارتباط با سرور');
+      if (error.response && error.response.data && error.response.data.message) {
+        toast.error(error.response.data.message);
+      } else {
+        toast.error('خطا در ارتباط با سرور');
+      }
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className='font-Dana bg-[url("/images/background/coffe-bg.jpg")] bg-cover bg-center min-h-screen w-full flex items-center justify-center'>
+    <div className='font-Dana  bg-cover bg-center min-h-screen w-full flex items-center justify-center'>
+      <ToastContainer
+        position="top-right"
+        autoClose={7000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className='w-full max-w-md mx-4'>
         <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-xl'>
           {/* Logo */}
