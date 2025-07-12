@@ -2,8 +2,7 @@ import Layout from "@/components/layout/Layout";
 import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
-
-import { store } from '@/store/store';
+import Providers from "@/redux/Providers";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -14,9 +13,11 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <ThemeProvider attribute="class" defaultTheme="system">
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <Providers>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </Providers>
       </ThemeProvider>
 
     </>
