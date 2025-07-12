@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCard'
+import ProductCard from './ProductCardBasket'
 import Link from 'next/link';
 import sampleProducts from '@/data/data';
 
