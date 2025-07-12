@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import ProductCard from './ProductCard';
+import ProductCardBasket from './ProductCardBasket';
 import sampleProducts from '@/data/data';
 
 function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
@@ -33,7 +33,7 @@ function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
                 <div className={`divide-y rounded-none divide-gray-300   child:rounded-none  ${sampleProducts.length > 3 ? 'max-h-full overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' : ''
                     }`}>
                     {sampleProducts.map(product => (
-                        <ProductCard key={product.id} {...product} />
+                        <ProductCardBasket key={product.id} {...product} />
                     ))}
                 </div>
 
