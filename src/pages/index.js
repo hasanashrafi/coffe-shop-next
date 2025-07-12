@@ -12,7 +12,6 @@ export default function Home() {
         const response = await fetch('http://localhost:3004/api/products')
         if (!response.ok) throw new Error('Failed to fetch products')
         const data = await response.json()
-        console.log(data)
         setData(data || [])
       } catch (error) {
 
