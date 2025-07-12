@@ -45,9 +45,9 @@ function DashboardPage() {
             <div className='container '>
                 <div className='flex items-center justify-between '>
                     <div><p className='text-2xl md:text-4xl font-DanaDemiBold'>به گلدن کافی خوش آمدید!☕</p>
-                        <p className='p-2 m-2'>نام کاربری: {userDetail?.username}</p>
-                        <p className='p-2 m-2'>ایمیل: {userDetail?.email}</p></div>
-                    <button onClick={logoutHandler} className='py-2 px-4 rounded-md text-white bg-red-600'>خروج</button>
+                        <p className=' m-2'>نام کاربری: {userDetail?.username}</p>
+                        <p className=' m-2'>ایمیل: {userDetail?.email}</p></div>
+                    <button onClick={logoutHandler} className='py-2 px-8 rounded-md text-white bg-red-600'>خروج</button>
                 </div>
             </div>
         </div>
