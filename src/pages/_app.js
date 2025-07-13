@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }) {
 
       <Head>
         <title>Coffee-Shop</title>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/images/app-logo.png" />
       </Head>
       <ThemeProvider attribute="class" defaultTheme="system">
         <Providers>
