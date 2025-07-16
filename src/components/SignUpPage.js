@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { FaCoffee } from 'react-icons/fa'
 import { useRouter } from 'next/router'
+import { signupUser } from '@/utils/api'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 const SignUpPage = () => {
     const router = useRouter();
     const [formData, setFormData] = useState({
-        name: "",
+        username: "",
         email: "",
         password: ""
     });
@@ -46,34 +48,24 @@ const SignUpPage = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch('http://localhost:3004/api/users/signup', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    ...formData,
-                    email: formData.email.toLowerCase()
-                })
+            const response = await signupUser({
+                ...formData,
+                email: formData.email.toLowerCase()
+
             });
 
-            const data = await response.json();
+            const data = response.data;
             console.log('Signup response:', data);
 
-            if (!response.ok) {
-                throw new Error(data.message || 'ثبت نام ناموفق بود');
+            if (response.status === 200 || response.status === 201) {
+                toast.success("ثبت نام با موفقیت انجام شد");
+                setTimeout(() => {
+                    router.push('/signin');
+                }, 1500); 
+                return;
             }
+            throw new Error(data.message || 'ثبت نام ناموفق بود');
 
-            if (data.success) {
-                // Store the new token and user data
-                localStorage.setItem("token", data.token);
-                localStorage.setItem("user", JSON.stringify(data.user));
-
-                // Redirect to home page
-                router.push("/signin");
-            } else {
-                throw new Error(data.message || 'ثبت نام ناموفق بود');
-            }
         } catch (error) {
             setError(error.message);
         } finally {
@@ -83,6 +75,7 @@ const SignUpPage = () => {
     return (
         <>
             <div className='  bg-cover bg-center min-h-screen  flex items-center justify-center'>
+                <ToastContainer />
                 <div className='w-full max-w-md mx-4'>
                     <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-md shadow-brown-300/90'>
                         {/* Logo */}
