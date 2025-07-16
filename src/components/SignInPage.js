@@ -21,7 +21,7 @@ function SignInPage() {
 
     try {
       const response = await loginUser({ email, password });
-      // Axios: response.data is the actual payload
+ 
       const data = response.data.data;
       console.log('Signin response:', data);
 
