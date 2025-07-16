@@ -7,8 +7,15 @@ const api = axios.create({
     },
 });
 
+export const signupUser = async (data) => {
+    return await api.post(`/users/signup`, data)
+}
+
 export const loginUser = async (data) => {
-    return await api.post(`users/signin`, data)
+    return await api.post(`/users/signin`, data)
+}
+export const profileUser = async (data) => {
+    return await api.get("/users/profile", data)
 }
 
 api.interceptors.request.use(async (config) => {
