@@ -1,3 +1,4 @@
+import api, { profileUser } from '@/utils/api';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
@@ -11,29 +12,23 @@ function DashboardPage() {
             router.push('/signin');
             return;
         }
-        try {
-            fetch("http://localhost:3004/api/users/profile", {
-                headers: {
-                    'Authorization': `Bearer ${token}`
+        const getProfile = async () => {
+            try {
+                const response = await profileUser({ headers: { 'Authorization': `Bearer ${token}` } });
+                const data = response.data;
+                if (data.message === 'Invalid token' || data.message === 'Authentication required') {
+                    localStorage.removeItem('token');
+                    router.push('/signin');
+                    return;
                 }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.message === 'Invalid token' || data.message === 'Authentication required') {
-                        localStorage.removeItem('token');
-                        router.push('/signin');
-                        return;
-                    }
-                    setUserDetail(data.data)
-                    console.log(data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        } catch (error) {
-            console.log(error.message)
-        }
-    }, [])
+                setUserDetail(data.data);
+                console.log(data);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getProfile();
+    }, []);
 
     const logoutHandler = () => {
         localStorage.removeItem("token")
