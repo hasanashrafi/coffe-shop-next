@@ -1,7 +1,7 @@
 import { sp } from '@/helpers/spreadNums'
 import Image from 'next/image'
 import React from 'react'
-import { FaShoppingBag } from 'react-icons/fa'
+
 
 function ProductCardMain(product) {
     const { name, price, discount, image } = product
@@ -21,7 +21,6 @@ function ProductCardMain(product) {
                 <span className='block h-[30px] leading-[34px] absolute top-1.5 right-1.5 font-DanaDemiBold text-white dark:text-zinc-700 px-3.5 rounded-full bg-orange-300'>%{discount}</span>
                 {/* Product Info */}
             </div>
-
             <h5 className='font-DanaMedium line-clamp-2 text-xl text-zinc-700 dark:text-white '>
                 {name}
             </h5>
@@ -35,7 +34,6 @@ function ProductCardMain(product) {
                 <div className='offer text-gray-400 '>
                     <span className='font-Dana text-xl '>{sp(price)}</span>
                     <span className='text-sm '>تومان</span>
-
                 </div>
             </div>
         </div>
