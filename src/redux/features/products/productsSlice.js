@@ -9,8 +9,7 @@ const initialState = {
 
 const fetchProducts = createAsyncThunk("products/fetchProducts", async () => {
     const response = await api.get("/products");
-    // Only return the data, not the entire response object
-    return response.data;
+    return await response.data;
 });
 
 const productsSlice = createSlice({

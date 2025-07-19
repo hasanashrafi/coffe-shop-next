@@ -36,7 +36,7 @@ function ProductsPage() {
         {/* section body */}
 
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-3.5 md:gap-5 child:h-[200px] child:md:h-[460px] child:bg-white child:dark:bg-zinc-700 child:rounded-xl mb-20">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-3.5 md:gap-5 child:h-[200px] child:md:h-[460px] child:rounded-xl mb-20">
           {products && products.map((product) => (
             <ProductCardMain key={product.id} {...product} />
           ))}

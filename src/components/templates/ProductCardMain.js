@@ -6,7 +6,8 @@ function ProductCardMain(product) {
   const { name, price, discount, image } = product
   return (
     <div className='h-[200px] md:h-[460px] bg-white dark:bg-zinc-700 rounded-xl'>
-      <div className="md:w-[350px] group flex items-center bg-white dark:bg-zinc-700 gap-x-1 md:gap-x-2.5 rounded-xl mt-5 p-5 md:p-3  ">
+     
+      <div className=" ">
             {/* Product Image */}
             <Image
                 priority
