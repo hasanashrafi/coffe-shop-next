@@ -1,62 +1,44 @@
 import Image from 'next/image'
 import React from 'react'
-import { FaShoppingBag } from 'react-icons/fa'
+
 
 function ProductCardMain(product) {
-  const { name, price, discount, image } = product
-  return (
-    <div className='h-[200px] md:h-[460px] bg-white dark:bg-zinc-700 rounded-xl'>
-     
-      <div className=" ">
-            {/* Product Image */}
-            <Image
-                priority
-                src={image}
-                className=" w-[90px] h-[90px] md:w-[120px] md:h-[120px]  object-cover transform hover:scale-110 transition-transform duration-500"
-                width={120}
-                height={120}
-                alt={`${name}`}
-            />
+    const { name, price, discount, image } = product
 
-            {/* Product Info */}
-            <div className=" flex flex-col justify-between  gap-y-1.5">
-                <h4 className="font-DanaMedium dark:text-white text-zinc-700 text-sm md:text-base line-clamp-2 ">
-                    {name}
-                </h4>
+    return (
+        <div className=' bg-white dark:bg-zinc-700 rounded-2xl p-5 shadow-md'>
+            <div className="relative mb-5">
+                {/* Product Image */}
+                <Image
+                    priority
+                    src={image}
+                    className=" w-[120px] h-[120px] mx-auto md:w-[120px] md:h-[120px]  object-cover transform hover:scale-110 transition-transform duration-500"
+                    width={120}
+                    height={120}
+                    alt={`${name}`}
+                />
+                <span className='block h-[30px] leading-[34px] absolute top-1.5 right-1.5 font-DanaDemiBold text-white dark:text-zinc-700 px-3.5 rounded-full bg-orange-300'>%{discount}</span>
+                {/* Product Info */}
+            </div>
 
-                <div className='mt-2'>
-                    {/* discount */}
-                    <div className="">
-                        {discount > 0 && (
-                            <p className="text-teal-600 dark:text-emerald-500  text-xs font-DanaMedium">
-                                {discount}% تخفیف
-                            </p>
-                        )}
-                        <span className="text-zinc-300 dark:text-white text-xs font-DanaMedium">
-                            {discount > 0 && (
-                                <span className="line-through text-gray-400 dark:text-gray-500">
-                                    {price} تومان
-                                </span>
-                            )}
-                        </span>
-                    </div>
-
-                    {/* price */}
-                    <div className="flex items-center justify-between mt-2">
-                        <div className="font-DanaDemiBold text-zinc-700 dark:text-white ">
-                            {discount > 0 ? Math.round(price * (1 - discount / 100)) : price}
-                            <span className="font-Dana text-xs md:text-sm mr-1">تومان</span>
-                        </div>
-                        <button className="hidden md:inline-block bg-teal-600 dark:bg-teal-500 text-white dark:text-white px-2 py-1 rounded-lg text-lg md:text-sm  transition-colors hover:bg-teal-700 dark:hover:bg-teal-600">
-                             <FaShoppingBag className='text-xl '/>  
-                        </button>
-                    </div>
+            <h5 className='font-DanaMedium line-clamp-2 text-xl text-zinc-700 dark:text-white '>
+                {name}
+            </h5>
+            <div className='flex items-center gap-x-2.5 mt-2.5'>
+                <div className='flex items-center text-teal-600 dark:text-emerald-500'>
+                    <span className='font-DanaDemiBold text-xl '>
+                        {sp(price * (1 - discount/100))}
+                    </span>
+                    <span className='text-sm tracking-tighter mr-0.5'>تومان</span>
                 </div>
+                <div className='offer text-gray-400 '>
+                    <span className='font-Dana text-xl '>{sp(price)}</span>
+                    <span className='text-sm '>تومان</span>
 
+                </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default ProductCardMain
