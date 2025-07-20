@@ -42,9 +42,6 @@
   }
 }
 
-<<<<<<< HEAD
- 
-=======
 .offer {
   @apply relative;
 }
@@ -64,4 +61,3 @@
     @apply flex items-center justify-center;
   }
 }
->>>>>>> ui
