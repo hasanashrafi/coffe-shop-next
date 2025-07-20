@@ -34,9 +34,13 @@ function ProductsPage() {
         </div>
 
         {/* section body */}
+<<<<<<< HEAD
 
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-3.5 md:gap-5  child:lg:h-[460px] child:rounded-xl mb-20">
+=======
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-3.5 md:gap-5    ">
+>>>>>>> ui
           {products && products.map((product) => (
             <ProductCardMain key={product.id} {...product} />
           ))}
