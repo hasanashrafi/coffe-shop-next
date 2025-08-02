@@ -7,7 +7,7 @@ function ProductCardMain(product) {
     const { name, price, discount, image } = product
 
     return (
-        <div className=' bg-white dark:bg-zinc-700 rounded-2xl p-2 md:p-5 shadow-md'>
+        <div className='flex flex-col justify-around bg-white dark:bg-zinc-700 rounded-2xl px-2 md:pt-4 shadow-md'>
             <div className="relative mb-2 md:mb-5">
                 {/* Product Image */}
                 <Image
@@ -37,35 +37,38 @@ function ProductCardMain(product) {
                     <span className='text-xs md:text-sm hidden lg:inline '>تومان</span>
                 </div>
             </div>
-            <div className='flex items-center justify-between mt-2 p-1.5'>
-                <div className='flex items-center justify-between gap-x-2'>
+
+
+            <div className='flex items-center justify-between mt-2.5 '>
+                <div className='flex items-center justify-between mt-2 gap-x-2.5 md:gap-x-3'>
                     <span className='w-[26px] h-[26px] md:size-9 flex-center bg-gray-100 text-gray-400 hover:bg-teal-600 dark:hover:bg-emerald-500 cursor-pointer transition-all ease-in-out hover:text-white dark:bg-zinc-800 rounded-full  '>
-                        <svg className='size-4 md:w-[22px] md:h-[22px]'>
+                        <svg className='w-4 h-4 md:w-6 md:h-6'>
                             <use href='#shopping'></use>
                         </svg>
                     </span>
-                    <span className='text-gray-400 hover:text-emerald-500 cursor-pointer transition-all ease-in-out '>
-                        <svg className='w-[22px] h-[22px] '>
+                    <span className='block text-gray-400 hover:text-teal-600 dark:hover:text-emerald-500 cursor-pointer transition-all ease-in-out '>
+                        <svg className=' w-4 h-4 md:w-6 md:h-6'>
                             <use href='#arrow-left'></use>
                         </svg>
                     </span>
                 </div>
+
                 <div className='flex items-center gap-x-1 child:text-yellow-400 '>
                     <span>
-                        <svg className='size-5 text-gray-400'>
+                        <svg className='size-6 text-gray-400'>
                             <use href='#star'></use>
                         </svg>
                     </span>
-
-                    <svg className='size-5'>
+                    <svg className='size-4 md:size-6'>
                         <use href='#star'></use>
                     </svg>
-                    <svg className='size-5'>
-                        <use href='#star'></use>
-                    </svg><svg className='size-5'>
+                    <svg className='size-4 md:size-6'>
                         <use href='#star'></use>
                     </svg>
-                    <svg className='size-5 '>
+                    <svg className='size-4 md:size-6'>
+                        <use href='#star'></use>
+                    </svg>
+                    <svg className='size-4 md:size-6'>
                         <use href='#star'></use>
                     </svg>
                 </div>
