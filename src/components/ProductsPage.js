@@ -1,19 +1,19 @@
 import React from 'react'
-import ProductCardMain from './templates/ProductCardMain'
 import Link from 'next/link'
-import Loader from './modules/Loader';
+import ProductCardMain from './templates/ProductCardMain'
 import { useProducts } from '@/hooks/useProducts';
+import Loader from './modules/Loader';
 
 function ProductsPage() {
   const { products, loading, error } = useProducts();
   console.log(products)
-  
+
   if (loading) return <Loader />
   if (error) return <div className='h-screen flex items-center justify-center bg-red-400 text-3xl'>Error: {error}</div>
 
   return (
-    <section className=" font-Dana products pt-8 md:pt-32 lg:pt-48 md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
-      <div className="container">
+    <section className="p-5 font-Dana products pt-32 md:pt-40 md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
+      <div className="container max-w-7xl">
         {/* section head */}
         <div className="flex items-end justify-between mb-5 md:mb-12">
           <div className="font-MorabbaMedium ">
@@ -34,12 +34,11 @@ function ProductsPage() {
         </div>
 
         {/* section body */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-3.5 md:gap-5    ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-5 child:h-[460px]  ">
           {products && products.map((product) => (
             <ProductCardMain key={product.id} {...product} />
           ))}
         </div>
-
       </div>
     </section>
 
