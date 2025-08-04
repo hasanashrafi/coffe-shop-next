@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { FaCoffee } from 'react-icons/fa'
 import { useRouter } from 'next/router'
+import { signupUser } from '@/utils/api';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignUpPage = () => {
@@ -12,7 +15,6 @@ const SignUpPage = () => {
         password: ""
     });
 
-    const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
@@ -28,43 +30,33 @@ const SignUpPage = () => {
 
         // Add validation
         if (!formData.username || !formData.email || !formData.password) {
-            setError('لطفاً تمام فیلدها را پر کنید');
+            toast.error('لطفاً تمام فیلدها را پر کنید');
             return;
         }
 
         if (formData.password.length < 6) {
-            setError('رمز عبور باید حداقل ۶ کاراکتر باشد');
+            toast.error('رمز عبور باید حداقل ۶ کاراکتر باشد');
             return;
         }
 
         if (!formData.email.includes('@')) {
-            setError('لطفاً یک ایمیل معتبر وارد کنید');
+            toast.error('لطفاً یک ایمیل معتبر وارد کنید');
             return;
         }
 
         try {
             setLoading(true);
-            setError(null);
 
-            const response = await fetch('http://localhost:3004/api/users/signup', {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    ...formData,
-                    email: formData.email.toLowerCase()
-                })
+            const response = await signupUser({
+                ...formData,
+                email: formData.email.toLowerCase()
             });
 
-            const data = await response.json();
+            const data = response.data;
             console.log('Signup response:', data);
 
-            if (!response.ok) {
-                throw new Error(data.message || 'ثبت نام ناموفق بود');
-            }
-
             if (data.success) {
+                toast.success('ثبت نام با موفقیت انجام شد');
                 // Store the new token and user data
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("user", JSON.stringify(data.user));
@@ -75,13 +67,14 @@ const SignUpPage = () => {
                 throw new Error(data.message || 'ثبت نام ناموفق بود');
             }
         } catch (error) {
-            setError(error.message);
+            toast.error(error.message || 'خطا در ثبت نام');
         } finally {
             setLoading(false);
         }
     };
     return (
         <>
+            <ToastContainer />
             <div className='  bg-cover bg-center min-h-screen  flex items-center justify-center'>
                 <div className='w-full max-w-md mx-4'>
                     <div className='bg-white/90 dark:bg-zinc-800/90 backdrop-blur-md rounded-2xl p-8 shadow-md shadow-brown-300/90'>
@@ -149,11 +142,7 @@ const SignUpPage = () => {
                                 {loading ? 'در حال ثبت نام...' : 'ثبت نام'}
                             </button>
 
-                            {error && (
-                                <p className='text-center mt-6 text-red-600'>
-                                    {error}
-                                </p>
-                            )}
+
                         </form>
 
                         {/* Login Link */}
