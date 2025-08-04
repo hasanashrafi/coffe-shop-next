@@ -27,33 +27,46 @@ function DashboardProfile() {
             try {
                 const response = await getProfile();
                 const data = response.data;
-              
+
                 if (data.message === 'Invalid token' || data.message === 'Authentication required') {
                     localStorage.removeItem('token');
                     router.push('/signin');
                     return;
                 }
 
-                setUserDetail(data.data || {});
+                const userData = data.data || {};
+                setUserDetail(userData);
                 setLoading(false);
-            } catch (error) {
-                console.error('Error fetching profile:', error);
-                setLoading(false);
-            }
-        };
-        const fetchDashboard = async () => {
-            try {
-                const response = await getDashboard(userDetail.id);
-                const data = response.data;
-                console.log(data)
-                setLoading(false);
+
+                // Try to fetch dashboard data, but don't block profile loading if it fails
+                if (userData.id) {
+                    fetchDashboard(userData.id).catch(error => {
+                        console.warn('Dashboard data unavailable:', error.message);
+                    });
+                }
             } catch (error) {
                 console.error('Error fetching profile:', error);
                 setLoading(false);
             }
         };
 
-        fetchDashboard()
+        const fetchDashboard = async (userId) => {
+            try {
+                if (!userId) {
+                    console.warn('No user ID available for dashboard fetch');
+                    return;
+                }
+
+                const response = await getDashboard(userId.toString());
+                const data = response.data;
+                console.log('Dashboard data:', data);
+                // You can set dashboard data to state here if needed
+            } catch (error) {
+                console.error('Error fetching dashboard:', error);
+                // Don't throw the error - just log it
+            }
+        };
+
         fetchUserProfile();
     }, [router]);
 

@@ -6,7 +6,6 @@ import Loader from './modules/Loader';
 
 function ProductsPage() {
   const { products, loading, error } = useProducts();
-  console.log(products)
 
   if (loading) return <Loader />
   if (error) return <div className='h-screen flex items-center justify-center bg-red-400 text-3xl'>Error: {error}</div>
@@ -36,7 +35,7 @@ function ProductsPage() {
         {/* section body */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:gap-5 child:h-[273px] md:child:h-[467px]  ">
           {products.length && products.map((product) => (
-            <ProductCardMain key={product.id} {...product} />
+            <ProductCardMain key={product._id} {...product} />
           ))}
         </div>
       </div>
