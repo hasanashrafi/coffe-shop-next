@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
+import { getProfile } from '@/utils/api';
 
 function DashboardPage() {
     const [userDetail, setUserDetail] = useState([])
@@ -12,28 +13,24 @@ function DashboardPage() {
             router.push('/signin');
             return;
         }
-        try {
-            fetch("https://backend-coffeshop-node.onrender.com/api/users/profile", {
-                headers: {
-                    'Authorization': `Bearer ${token}`
+        const fetchUserProfile = async () => {
+            try {
+                const response = await getProfile();
+                const data = response.data;
+
+                if (data.message === 'Invalid token' || data.message === 'Authentication required') {
+                    localStorage.removeItem('token');
+                    router.push('/signin');
+                    return;
                 }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.message === 'Invalid token' || data.message === 'Authentication required') {
-                        localStorage.removeItem('token');
-                        router.push('/signin');
-                        return;
-                    }
-                    setUserDetail(data.data)
-                    console.log(data)
-                })
-                .catch(err => {
-                    console.log(err)
-                })
-        } catch (error) {
-            console.log(error.message)
-        }
+                setUserDetail(data.data);
+                console.log(data);
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+
+        fetchUserProfile();
     }, [])
 
     const logoutHandler = () => {
