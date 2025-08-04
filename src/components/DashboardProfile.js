@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { getDashboard, getProfile } from '@/utils/api';
 
 function DashboardProfile() {
     const [userDetail, setUserDetail] = useState({});
@@ -24,13 +25,9 @@ function DashboardProfile() {
 
         const fetchUserProfile = async () => {
             try {
-                const response = await fetch("https://backend-coffeshop-node.onrender.com/api/users/profile", {
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                const data = await response.json();
-
+                const response = await getProfile();
+                const data = response.data;
+              
                 if (data.message === 'Invalid token' || data.message === 'Authentication required') {
                     localStorage.removeItem('token');
                     router.push('/signin');
@@ -44,7 +41,19 @@ function DashboardProfile() {
                 setLoading(false);
             }
         };
+        const fetchDashboard = async () => {
+            try {
+                const response = await getDashboard(userDetail.id);
+                const data = response.data;
+                console.log(data)
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching profile:', error);
+                setLoading(false);
+            }
+        };
 
+        fetchDashboard()
         fetchUserProfile();
     }, [router]);
 
@@ -61,6 +70,7 @@ function DashboardProfile() {
             </div>
         );
     }
+
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-brown-100 to-brown-300 dark:from-brown-900 dark:to-zinc-800 font-Dana pt-32 md:pt-40">
@@ -234,8 +244,8 @@ function DashboardProfile() {
                                                 {(45000 + order * 5000).toLocaleString()} تومان
                                             </p>
                                             <span className={`text-xs px-2 py-1 rounded-full ${order === 1 ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400' :
-                                                    order === 2 ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
-                                                        'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400'
+                                                order === 2 ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400' :
+                                                    'bg-gray-100 text-gray-800 dark:bg-gray-900/30 dark:text-gray-400'
                                                 }`}>
                                                 {order === 1 ? 'تحویل شده' : order === 2 ? 'در حال آماده‌سازی' : 'تکمیل شده'}
                                             </span>
