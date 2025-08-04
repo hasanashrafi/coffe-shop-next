@@ -12,7 +12,7 @@ function ProductsPage() {
   if (error) return <div className='h-screen flex items-center justify-center bg-red-400 text-3xl'>Error: {error}</div>
 
   return (
-    <section className="p-5 font-Dana products pt-32 md:pt-40 md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  min-h-screen ">
+    <section className="p-2.5 md:p-5 font-Dana products pt-8 pb-20 md:pt-24 lg:pt-48 md:bg-products-hero md:dark:bg-[url(/images/products-bg.png)]  bg-no-repeat ">
       <div className="container max-w-7xl">
         {/* section head */}
         <div className="flex items-end justify-between mb-5 md:mb-12">
@@ -34,8 +34,8 @@ function ProductsPage() {
         </div>
 
         {/* section body */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4  gap-5 child:h-[460px]  ">
-          {products && products.map((product) => (
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:gap-5 child:h-[273px] md:child:h-[467px]  ">
+          {products.length && products.map((product) => (
             <ProductCardMain key={product.id} {...product} />
           ))}
         </div>
