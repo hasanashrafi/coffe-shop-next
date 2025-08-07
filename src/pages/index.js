@@ -1,3 +1,4 @@
+import CategoryBanner from "@/components/CategoryBanner";
 import ProductsPage from "@/components/ProductsPage";
 
 export default function Home() {
@@ -33,7 +34,6 @@ export default function Home() {
           <use href="#curve"> </use>
         </svg>
 
-
         {/* arrow rings */}
         <div className=" absolute left-0 right-0 bottom-0 mx-auto translate-y-2/4 w-[30px] h-[30px] hidden md:flex items-center justify-center rounded-full border-2 border-orange-300">
           <svg className="size-5 mx-auto text-zinc-700 dark:text-white">
@@ -44,6 +44,9 @@ export default function Home() {
 
       {/* products section */}
       <ProductsPage />
+
+      {/* category banner */}
+      <CategoryBanner />
     </main>
   );
 }

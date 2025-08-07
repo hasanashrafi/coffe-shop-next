@@ -11,14 +11,21 @@ function ProductCardMain(product) {
             {/* Product Image */}
             <div className="relative mb-2 md:mb-5">
                 <Image
-                    priority
+                   
+                    loading='lazy'
                     src={image}
-                    className=" size-32 md:w-auto mx-auto "
+                    className=" w-32  md:w-auto mx-auto "
                     width={120}
                     height={120}
                     alt={`${name}`}
                 />
-                <span className='block h-5 md:h-[30px]  text-xs/[24px] md:text-base/[34px] absolute top-1.5 right-1.5 font-DanaDemiBold text-white dark:text-zinc-700 px-2.5 md:px-3.5 rounded-full bg-orange-300'>%{discount}</span>
+                {
+                    discount > 0 && (
+                        <span className='block h-5 md:h-[30px]  text-xs/[24px] md:text-base/[34px] absolute top-1.5 right-1.5 font-DanaDemiBold text-white dark:text-zinc-700 px-2.5 md:px-3.5 rounded-full bg-orange-300'>
+                            %{discount}
+                        </span>
+                    )
+                }
             </div>
 
             {/* Product Name */}
@@ -29,17 +36,26 @@ function ProductCardMain(product) {
             {/* Product Price */}
             <div className='flex items-center gap-x-2 md:gap-x-2.5 mt-2.5 md:mt-2.5'>
                 <div className='flex items-center text-teal-600 dark:text-emerald-500'>
-                    {discount && (
-                        <span className='font-DanaDemiBold text-base md:text-xl '>
-                            {sp(price * (1 - discount / 100))}
-                        </span>
+                    {price > 0 ? (
+                        <div>
+                            <span className='font-DanaDemiBold text-base md:text-xl '>
+                                {sp(price * (1 - discount / 100))}
+                            </span>
+                            <span className='text-xs md:text-sm tracking-tighter mr-0.5'>تومان</span>
+                        </div>
+                    ) : (
+                        <div className='flex items-center text-red-400'>
+                            <span className='font-DanaDemiBold text-base md:text-xl '>
+                                فعلا موجود نیست
+                            </span>
+                        </div>
                     )}
-                    <span className='text-xs md:text-sm tracking-tighter mr-0.5'>تومان</span>
                 </div>
-                <div className='offer text-gray-400 '>
-                    <span className='font-Dana text-base md:text-xl '>{sp(price)}</span>
-                    <span className='text-xs md:text-sm hidden lg:inline '>تومان</span>
-                </div>
+                {discount > 0 && (
+                    <div className='offer text-gray-400 '>
+                        <span className='font-Dana text-base md:text-xl '>{sp(price)}</span>
+                        <span className='text-xs md:text-sm hidden lg:inline '>تومان</span>
+                    </div>)}
             </div>
 
             {/* Product Actions */}
