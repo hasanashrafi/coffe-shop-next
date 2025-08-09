@@ -48,18 +48,23 @@ module.exports = {
         "home-desktop": "url(/images/headerBgDesktop.webp)",
         'products-hero': "linear-gradient(rgba(243,244,246,0.65), rgba(243,244,246,0.65)), url('/images/products-bg.png')",
         'dashboard': " url('/images/dashboard.jpg')",
-        'category-right':"linear-gradient(rgba(0,0,0,0.6) 33.85% , rgba(243,244,246,0.1)) ,url('/images/categories/category-right.jpg')",
-        'category-left':"linear-gradient(rgba(0,0,0,0.6) 33.85% , rgba(243,244,246,0.1))  ,url('/images/categories/category-left.jpg')"
+        'category-right': "linear-gradient(rgba(0,0,0,0.6) 33.85% , rgba(243,244,246,0.1)) ,url('/images/categories/category-right.jpg')",
+        'category-left': "linear-gradient(rgba(0,0,0,0.6) 33.85% , rgba(243,244,246,0.1))  ,url('/images/categories/category-left.jpg')"
       },
-      screens:{
-        "xs":"480px",
-        "sm":"640px",
-        "md":"768px",
-        "lg":"1024px",
-        "xl":"1280px",
-        "2xl":"1536px",
-        "3xl":"1792px"
-      }
+      screens: {
+        "xs": "480px",
+        "sm": "640px",
+        "md": "768px",
+        "lg": "1024px",
+        "xl": "1280px",
+        "2xl": "1536px",
+        "3xl": "1792px"
+      },
+      spacing: {
+        "25": "6.25rem",
+        "30": "7.5rem",
+        "50": "12.5rem",
+      },
     },
   },
 
