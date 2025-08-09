@@ -48,6 +48,8 @@ module.exports = {
         "home-desktop": "url(/images/headerBgDesktop.webp)",
         'products-hero': "linear-gradient(rgba(243,244,246,0.65), rgba(243,244,246,0.65)), url('/images/products-bg.png')",
         'dashboard': " url('/images/dashboard.jpg')",
+        'category-right':"url('/images/categories/category-right.jpg')",
+        'category-left':"url('/images/categories/category-left.jpg')"
       },
       screens:{
         "xs":"480px",
