@@ -1,11 +1,12 @@
 import CategoryBanner from "@/components/CategoryBanner";
+import ProductsCategory from "@/components/ProductsCategory";
 import ProductsPage from "@/components/ProductsPage";
 
 export default function Home() {
  
 
   return (
-    <main className="font-Dana ">
+    <main className="font-Dana scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
       <section className="home relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  md:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
         <div className="container relative overflow-y-hidden h-full md:min-h-screen  flex justify-end items-center">
           <div className="text-white ">
@@ -47,6 +48,9 @@ export default function Home() {
 
       {/* category banner */}
       <CategoryBanner />
+
+      {/* Products Category */}
+      <ProductsCategory/>
     </main>
   );
 }
