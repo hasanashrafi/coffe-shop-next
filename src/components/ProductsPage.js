@@ -33,7 +33,7 @@ function ProductsPage() {
         </div>
 
         {/* section body */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:gap-5 child:h-[273px] md:child:h-[367px] lg:child:h-[467px]  ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3.5 lg:gap-5 child:h-[273px] md:child:h-[467px]   ">
           {products.length && products.map((product) => (
             <ProductCardMain key={product._id} {...product} />
           ))}
