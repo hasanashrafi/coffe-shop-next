@@ -1,3 +1,4 @@
+import BestSelling from "@/components/BestSelling";
 import CategoryBanner from "@/components/CategoryBanner";
 import ProductsCategory from "@/components/ProductsCategory";
 import ProductsPage from "@/components/ProductsPage";
@@ -51,6 +52,9 @@ export default function Home() {
 
       {/* Products Category */}
       <ProductsCategory/>
+
+      {/* Best Selling Products */}
+      <BestSelling/>
     </main>
   );
 }
