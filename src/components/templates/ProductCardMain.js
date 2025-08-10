@@ -49,15 +49,15 @@ function ProductCardMain(product) {
     return (
         <div className='flex flex-col bg-white dark:bg-zinc-700 rounded-2xl p-2 md:p-5 shadow-md'>
             {/* Product Image */}
-            <div className="relative mb-2 md:mb-5">
+            <div className="relative mb-2 md:mb-5 ">
                 <Image
-
-                    loading='lazy'
+                    priority
                     src={image}
-                    className=" w-32  md:w-auto mx-auto "
-                    width={120}
-                    height={120}
-                    alt={`${name}`}
+                    alt={name}
+                    width={300}       // request large enough image for sharpness
+                    height={300}
+                    quality={100}
+                    className="w-32 h-32 md:w-64 md:h-64 object-contain mx-auto" // 128×128 on small screens, 192×192 on md+
                 />
                 {
                     discount > 0 && (
@@ -66,7 +66,6 @@ function ProductCardMain(product) {
                         </span>
                     )
                 }
-                
             </div>
 
             {/* Product Name */}
