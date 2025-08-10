@@ -4,14 +4,54 @@ import React from 'react'
 
 
 function ProductCardMain(product) {
-    const { name, price, discount, image } = product
+    const { name, price, discount, image, rate = 0 } = product
+
+    // Convert price to number if it's a string
+    const numericPrice = typeof price === 'string' ? parseInt(price) : price;
+
+    // Function to render stars based on rating
+    const renderStars = (rating) => {
+        const stars = [];
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 !== 0;
+
+        // Render full stars
+        for (let i = 0; i < fullStars; i++) {
+            stars.push(
+                <svg key={`full-${i}`} className='size-4 md:size-6 text-yellow-400'>
+                    <use href='#star'></use>
+                </svg>
+            );
+        }
+
+        // Render half star if needed
+        if (hasHalfStar && fullStars < 5) {
+            stars.push(
+                <svg key={`half`} className='size-4 md:size-6 text-yellow-400'>
+                    <use href='#star'></use>
+                </svg>
+            );
+        }
+
+        // Render empty stars
+        const emptyStars = 5 - Math.ceil(rating);
+        for (let i = 0; i < emptyStars; i++) {
+            stars.push(
+                <svg key={`empty-${i}`} className='size-4 md:size-6 text-gray-300 dark:text-gray-400'>
+                    <use href='#star'></use>
+                </svg>
+            );
+        }
+
+        return stars;
+    };
 
     return (
-        <div className='flex flex-col justify-around bg-white dark:bg-zinc-700 rounded-2xl p-2 md:p-5 shadow-md'>
+        <div className='flex flex-col bg-white dark:bg-zinc-700 rounded-2xl p-2 md:p-5 shadow-md'>
             {/* Product Image */}
             <div className="relative mb-2 md:mb-5">
                 <Image
-                   
+
                     loading='lazy'
                     src={image}
                     className=" w-32  md:w-auto mx-auto "
@@ -26,6 +66,7 @@ function ProductCardMain(product) {
                         </span>
                     )
                 }
+                
             </div>
 
             {/* Product Name */}
@@ -36,10 +77,10 @@ function ProductCardMain(product) {
             {/* Product Price */}
             <div className='flex items-center gap-x-2 md:gap-x-2.5 mt-2.5 md:mt-2.5'>
                 <div className='flex items-center text-teal-600 dark:text-emerald-500'>
-                    {price > 0 ? (
+                    {numericPrice > 0 ? (
                         <div>
                             <span className='font-DanaDemiBold text-base md:text-xl '>
-                                {sp(price * (1 - discount / 100))}
+                                {sp(numericPrice * (1 - discount / 100))}
                             </span>
                             <span className='text-xs md:text-sm tracking-tighter mr-0.5'>تومان</span>
                         </div>
@@ -53,7 +94,7 @@ function ProductCardMain(product) {
                 </div>
                 {discount > 0 && (
                     <div className='offer text-gray-400 '>
-                        <span className='font-Dana text-base md:text-xl '>{sp(price)}</span>
+                        <span className='font-Dana text-base md:text-xl '>{sp(numericPrice)}</span>
                         <span className='text-xs md:text-sm hidden lg:inline '>تومان</span>
                     </div>)}
             </div>
@@ -74,22 +115,15 @@ function ProductCardMain(product) {
                 </div>
 
                 {/* Product Rating */}
-                <div className=' flex items-center mt-2 text-yellow-400 '>
-                    <svg className='size-4 md:size-6 text-gray-300 dark:text-gray-400'>
-                        <use href='#star'></use>
-                    </svg>
-                    <svg className='size-4 md:size-6'>
-                        <use href='#star'></use>
-                    </svg>
-                    <svg className='size-4 md:size-6'>
-                        <use href='#star'></use>
-                    </svg>
-                    <svg className='size-4 md:size-6'>
-                        <use href='#star'></use>
-                    </svg>
-                    <svg className='size-4 md:size-6'>
-                        <use href='#star'></use>
-                    </svg>
+                <div className='flex items-center mt-2'>
+                    <div className='flex items-center'>
+                        {renderStars(rate)}
+                    </div>
+                    {rate > 0 && (
+                        <span className='text-xs md:text-sm text-gray-500 dark:text-gray-400 mr-1'>
+                            ({rate})
+                        </span>
+                    )}
                 </div>
             </div>
         </div>
