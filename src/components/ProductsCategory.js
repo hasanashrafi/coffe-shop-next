@@ -4,7 +4,7 @@ import React from 'react'
 
 function ProductsCategory() {
     return (
-        <section className='flex flex-wrap items-center justify-center gap- mb-10 md:mb-20'>
+        <section className='flex flex-wrap items-center justify-center gap-y-6 gap-x-[29px] md:gap-[65px] mb-10 md:mb-20'>
             <Link href="/" className=' w-25 md:w-50 text-center '>
                 <Image
                     src="/images/categories/category1.png"
