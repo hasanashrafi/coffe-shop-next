@@ -54,7 +54,7 @@ function ProductCardMain(product) {
                     priority
                     src={image}
                     alt={name}
-                    width={300}       // request large enough image for sharpness
+                    width={300}      
                     height={300}
                     quality={100}
                     className="w-32 h-32 md:w-64 md:h-64 object-contain mx-auto" // 128×128 on small screens, 192×192 on md+
