@@ -1,5 +1,6 @@
 import BestSelling from "@/components/BestSelling";
 import CategoryBanner from "@/components/CategoryBanner";
+import CoffeeClub from "@/components/CoffeeClub";
 import ProductsCategory from "@/components/ProductsCategory";
 import ProductsPage from "@/components/ProductsPage";
 
@@ -55,6 +56,9 @@ export default function Home() {
 
       {/* Best Selling Products */}
       <BestSelling/>
+
+      {/* Coffee Club */}
+      <CoffeeClub/>
     </main>
   );
 }
