@@ -60,7 +60,7 @@ function BestSelling() {
   }
 
   return (
-    <section className='mb-9 md:mb-20 '>
+    <section className='mb-8 md:mb-20 '>
       <div className='container max-w-7xl mx-auto'>
         <div className="flex items-end justify-between mb-5 md:mb-12">
           <div className="font-MorabbaMedium ">
