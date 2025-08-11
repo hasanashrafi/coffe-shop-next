@@ -38,7 +38,7 @@ function BestSelling() {
   if (loading) {
     return (
       <section>
-        <div className='container mx-auto'>
+        <div className='container mx-auto max-w-7xl'>
           <div className="flex items-center justify-center h-64">
             <div className="text-lg text-zinc-700 dark:text-white">در حال بارگذاری محصولات...</div>
           </div>
@@ -50,7 +50,7 @@ function BestSelling() {
   if (error) {
     return (
       <section>
-        <div className='container mx-auto'>
+        <div className='container mx-auto max-w-7xl'>
           <div className="flex items-center justify-center h-64">
             <div className="text-lg ">خطا در بارگذاری محصولات</div>
           </div>
@@ -60,8 +60,8 @@ function BestSelling() {
   }
 
   return (
-    <section className='mb-9 md:mb-20'>
-      <div className='container mx-auto'>
+    <section className='mb-9 md:mb-20 '>
+      <div className='container max-w-7xl mx-auto'>
         <div className="flex items-end justify-between mb-5 md:mb-12">
           <div className="font-MorabbaMedium ">
             <h3 className="text-2xl md:text-5xl text-zinc-700 dark:text-white">
@@ -87,23 +87,23 @@ function BestSelling() {
       </div>
 
       {bestSellingProducts.length > 0 ? (
-
         <Swiper
-          className=''
+         className='mx-auto max-w-7xl'
           modules={[Navigation]}
           spaceBetween={14}
           slidesPerView={2}
           breakpoints={{
             640: {
               slidesPerView: 3,
+              spaceBetween: 14,
             },
             768: {
-
+              slidesPerView: 3,
               spaceBetween: 20,
             },
             1024: {
               slidesPerView: 4,
-
+              spaceBetween: 20,
             },
             1280: {
               slidesPerView: 4,
@@ -111,8 +111,6 @@ function BestSelling() {
             },
           }}
           autoHeight={true}
-          height={500}
-
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
@@ -124,7 +122,6 @@ function BestSelling() {
             </SwiperSlide>
           ))}
         </Swiper>
-
       ) : (
         <div className="container mx-auto">
           <div className="flex items-center justify-center h-32">
