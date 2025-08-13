@@ -1,7 +1,8 @@
 import React from 'react'
 import ProductCard from './ProductCardBasket'
 import Link from 'next/link';
-import sampleProducts from '@/data/data';
+import sampleProducts from '@/data/sampleProducts';
+
 
 function ShoppingCard() {
 

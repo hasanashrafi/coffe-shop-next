@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
 import ProductCardBasket from './ProductCardBasket';
-import sampleProducts from '@/data/data';
+import sampleProducts from '@/data/sampleProducts';
 
 function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
 
@@ -71,6 +71,3 @@ function MobileShoppingCard({ mobileShoppingCard, setMobileShoppingCard }) {
 }
 
 export default MobileShoppingCard
-
-
-

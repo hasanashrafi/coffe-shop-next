@@ -2,133 +2,119 @@
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import { useProducts } from '@/hooks/useProducts';
 import ProductCardMain from './templates/ProductCardMain';
-import { getBestSellingProducts } from '@/helpers/filterProducts';
+import { fetchProducts } from '@/redux/features/products/productsSlice';
 
 function BestSelling() {
   const swiperRef = useRef(null);
-  const { products, loading, error } = useProducts();
-  const [bestSellingProducts, setBestSellingProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  // Use inline selectors to debug the issue
+  const { loading, error } = useSelector((state) => state.products);
+  const products = useSelector((state) => state.products.products || []);
+
+  // Get best selling products inline - create a copy to avoid mutating Redux state
+  const bestSellingProducts = [...products]
+    .sort((a, b) => (b.rating || 0) - (a.rating || 0))
+    .slice(0, 8);
 
   useEffect(() => {
-    if (products && products.length > 0) {
-      const bestSellers = getBestSellingProducts(products, 8);
-      setBestSellingProducts(bestSellers);
-    }
-  }, [products]);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-  const handlePrevSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slidePrev();
+  const handleNextSlide = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
     }
   };
 
-  const handleNextSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
+  const handlePrevSlide = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
     }
   };
 
   if (loading) {
     return (
-      <section>
-        <div className='container mx-auto max-w-7xl'>
-          <div className="flex items-center justify-center h-64">
-            <div className="text-lg text-zinc-700 dark:text-white">در حال بارگذاری محصولات...</div>
-          </div>
-        </div>
-      </section>
+      <div className="flex justify-center items-center py-20">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500"></div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <section>
-        <div className='container mx-auto max-w-7xl'>
-          <div className="flex items-center justify-center h-64">
-            <div className="text-lg ">خطا در بارگذاری محصولات</div>
-          </div>
-        </div>
-      </section>
+      <div className="text-center py-20 text-red-500">
+        Error loading products: {error}
+      </div>
     );
   }
 
   return (
-    <section className='mb-8 md:mb-20 '>
-      <div className='container max-w-7xl mx-auto'>
+    <section className="py-8 md:py-16 font-Dana">
+      <div className="container max-w-7xl">
+        {/* section head */}
         <div className="flex items-end justify-between mb-5 md:mb-12">
-          <div className="font-MorabbaMedium ">
-            <h3 className="text-2xl md:text-5xl text-zinc-700 dark:text-white">
-              محصولات پرفروش
-            </h3>
-            <p className="text-lg md:text-3xl font-MorabbaLight mt-0.5 md:mt-1.5 text-zinc-700 dark:text-white">
-              پیشنهاد قهوه خورها...
+          <div>
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-MorabbaBold text-zinc-700 dark:text-white mb-2 md:mb-4">
+              پرفروش‌ترین محصولات
+            </h2>
+            <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400">
+              محصولات پرفروش و محبوب ما را مشاهده کنید
             </p>
           </div>
-          <div className='flex gap-x-3 md:gap-x-[18px]'>
-            <span onClick={handleNextSlide} className='flex-center size-9 md:size-10 cursor-pointer transition-all hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700 rounded-full shadow-md text-zinc-700 dark:text-white bg-white dark:bg-zinc-700'>
+          <div className="flex gap-2 md:gap-3">
+            <span onClick={handlePrevSlide} className='flex-center size-9 md:size-10 cursor-pointer transition-all hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700 rounded-full shadow-md text-zinc-700 dark:text-white bg-white dark:bg-zinc-700'>
               <svg className="size-5 md:w-[26px] md:h-[26px] ">
                 <use href="#chevron-right"></use>
               </svg>
             </span>
-            <span onClick={handlePrevSlide} className='flex-center size-9 md:size-10 cursor-pointer transition-all hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700 rounded-full shadow-md text-zinc-700 dark:text-white bg-white dark:bg-zinc-700'>
+            <span onClick={handleNextSlide} className='flex-center size-9 md:size-10 cursor-pointer transition-all hover:bg-gray-300 dark:hover:bg-white dark:hover:text-zinc-700 rounded-full shadow-md text-zinc-700 dark:text-white bg-white dark:bg-zinc-700'>
               <svg className="size-5 md:w-[26px] md:h-[26px] ">
                 <use href="#chevron-left"></use>
               </svg>
             </span>
           </div>
         </div>
-      </div>
 
-      {bestSellingProducts.length > 0 ? (
-        <Swiper
-         className='mx-auto max-w-7xl'
-          modules={[Navigation]}
-          spaceBetween={14}
-          slidesPerView={2}
-          breakpoints={{
-            640: {
-              slidesPerView: 3,
-              spaceBetween: 14,
-            },
-            768: {
-              slidesPerView: 3,
-              spaceBetween: 20,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 20,
-            },
-            1280: {
-              slidesPerView: 4,
-              spaceBetween: 30,
-            },
-          }}
-          autoHeight={true}
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          onSlideChange={() => console.log('slide change')}
-        >
-          {bestSellingProducts.map((product, index) => (
-            <SwiperSlide className='p-0.5 ' key={`product-${product.id}-${index}`} >
-              <ProductCardMain {...product} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      ) : (
-        <div className="container mx-auto">
-          <div className="flex items-center justify-center h-32">
-            <div className="text-lg text-zinc-700 dark:text-white">محصولی برای نمایش وجود ندارد</div>
-          </div>
+        {/* products slider */}
+        <div className="relative">
+          <Swiper
+            ref={swiperRef}
+            modules={[Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            navigation={false}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+              },
+              1024: {
+                slidesPerView: 4,
+                spaceBetween: 20,
+              },
+            }}
+            className="best-selling-swiper"
+          >
+            {bestSellingProducts.map((product, index) => (
+              <SwiperSlide key={index}>
+                <ProductCardMain {...product} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-      )}
+      </div>
     </section>
   )
 }
