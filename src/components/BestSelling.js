@@ -91,6 +91,7 @@ function BestSelling() {
             spaceBetween={20}
             slidesPerView={1}
             navigation={false}
+            height={400}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -105,10 +106,10 @@ function BestSelling() {
                 spaceBetween: 20,
               },
             }}
-            className="best-selling-swiper"
+            className="best-selling-swiper "
           >
             {bestSellingProducts.map((product, index) => (
-              <SwiperSlide key={index}>
+              <SwiperSlide key={index} className='p-0.5 '>
                 <ProductCardMain {...product} />
               </SwiperSlide>
             ))}

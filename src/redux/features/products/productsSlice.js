@@ -31,7 +31,6 @@ const productsSlice = createSlice({
             state.error = null;
         })
         builder.addCase(fetchProducts.fulfilled, (state, action) => {
-            console.log('Products fulfilled with payload:', action.payload);
 
             // Handle the response structure: { success: true, data: [...] }
             let productsArray = [];
