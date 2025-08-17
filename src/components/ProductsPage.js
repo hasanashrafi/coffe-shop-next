@@ -11,21 +11,18 @@ function ProductsPage() {
 
   // Use inline selectors to debug the issue
   const products = useSelector((state) => {
+    console.log('Redux state:', state);
     return state?.products?.products || [];
   });
   const loading = useSelector((state) => state?.products?.loading || false);
   const error = useSelector((state) => state?.products?.error || null);
 
   useEffect(() => {
+    console.log('Dispatching fetchProducts');
     dispatch(fetchProducts());
   }, [dispatch]);
 
   console.log('ProductsPage render - products:', products, 'loading:', loading, 'error:', error);
-
-  // Safety check - if Redux state is not ready, show loading
-  if (!products || products === undefined) {
-    return <Loader />;
-  }
 
   if (loading) return <Loader />
   if (error) return <div className='h-screen flex items-center justify-center bg-red-400 text-3xl'>Error: {error}</div>
@@ -35,16 +32,20 @@ function ProductsPage() {
       <div className="container max-w-7xl">
         {/* section head */}
         <div className="flex items-end justify-between mb-5 md:mb-12">
-          <div>
-            <h2 className="text-2xl md:text-4xl lg:text-5xl font-MorabbaBold text-zinc-700 dark:text-white mb-2 md:mb-4">
-              محصولات
-            </h2>
-            <p className="text-sm md:text-base text-zinc-500 dark:text-zinc-400">
-              تمام محصولات ما را مشاهده کنید
-            </p>
+          <div className="font-MorabbaMedium ">
+            <h3 className="text-2xl md:text-5xl text-zinc-700 dark:text-white">جدیدترین محصولات</h3>
+            <p className="text-lg md:text-3xl font-MorabbaLight mt-0.5 md:mt-1.5 text-zinc-700 dark:text-white">فراوری شده از دانه های قهوه</p>
           </div>
-          <Link href="/" className="text-sm md:text-base text-yellow-500 hover:text-yellow-600 transition-colors">
-            بازگشت به خانه
+          <Link href="/products" className="flex items-center text-base md:text-xl md:gap-x-1 text-orange-300 transition-colors md:hover:bg-orange-300/20 h-10 pr-3 pl-1 rounded-md tracking-tightest">
+            <span className="hidden md:inline-block">
+              مشاهده همه محصولات
+            </span>
+            <span className="md:hidden">
+              مشاهده همه
+            </span>
+            <svg className="size-5 ">
+              <use href="#chevron-left"></use>
+            </svg>
           </Link>
         </div>
 
