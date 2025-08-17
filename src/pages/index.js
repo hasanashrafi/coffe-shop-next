@@ -1,4 +1,5 @@
 import BestSelling from "@/components/BestSelling";
+import Blog from "@/components/Blog";
 import CategoryBanner from "@/components/CategoryBanner";
 import CoffeeClub from "@/components/CoffeeClub";
 import ProductsCategory from "@/components/ProductsCategory";
@@ -59,6 +60,9 @@ export default function Home() {
 
       {/* Coffee Club */}
       <CoffeeClub/>
+
+      {/* Blog */}
+      <Blog/>
     </main>
   );
 }
