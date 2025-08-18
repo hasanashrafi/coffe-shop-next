@@ -16,6 +16,9 @@ module.exports = {
         light: "0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
         dark: " 0px 1px 10px 0px rgba(0, 0, 0, 0.05)",
       },
+      borderRadius: {
+        '4xl': '32px',
+      },
       keyframes: {
         steam: {
           "0%": { transform: "translateY(0) scale(1)", opacity: "1" },
