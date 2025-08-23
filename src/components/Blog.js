@@ -27,35 +27,46 @@ function Blog() {
                 </div>
                 {/* section content */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-                    <div className='group bg-white dark:bg-zinc-700 p-2.5 md:pb-2 rounded-2xl shadow-md'>
-                        <div className='relative mb-4 rounded-2xl rounded-bl-4xl overflow-hidden'>
+                    <div className='group flex sm:block gap-x-2.5 bg-white dark:bg-zinc-700 p-2.5 md:pb-2 rounded-2xl shadow-md'>
+                        <div className='shrink-0 size-[130px] sm:w-auto sm:h-auto relative sm:mb-4 rounded-2xl rounded-bl-4xl overflow-hidden'>
                             <Image
-                                width={100}
-                                height={100}
+                                width={500}
+                                height={500}
                                 src={'/images/blogs/blog-1.png'}
                                 alt='blog'
-                                className='w-full h-full object-cover '
+                                className=' h-full sm:h-auto object-cover '
                                 priority
                                 sizes='100vw'
                                 quality={100}
                             />
-                            <div className='absolute inset-0  md:flex-center hidden invisible cursor-pointer opacity-0 group-hover:visible group-hover:opacity-100  transition-all  delay-75 bg-gradient-to-r from-orange-200/80 to-orange-300/80 rounded-xl'>
+                            <div className='absolute inset-0  sm:flex-center hidden invisible cursor-pointer opacity-0 group-hover:visible group-hover:opacity-100  transition-all  delay-75 bg-gradient-to-r from-orange-200/80 to-orange-300/80 rounded-xl'>
                                 <svg className='w-[138px] h-[58px] text-amber-700'>
                                     <use href='#logo-type' />
                                 </svg>
                             </div>
                         </div>
-                        <div className='flex items-start justify-between'>
-                            <h2 className='max-w-[193px] text-sm md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>طرز تهیه قهوه دمی با دستگاه اروپرس</h2>
-                            <div className='flex items-center'>
-                                <div className='w-px h-[61px] bg-gray-100 dark:bg-white/10 ml-5'></div>
-                                <div className='flex flex-col text-left  text-emerald-600 dark:text-emerald-500 text-sm ml-[18px]'>
+
+                        <div className='w-full flex flex-col sm:flex-row  items-start justify-between'>
+                            <Link href='/' className='block max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>طرز تهیه قهوه دمی با دستگاه اروپرس</Link>
+                            <div className='hidden sm:flex gap-5 '>
+                                <div className='block w-px h-[61px] bg-gray-100 dark:bg-white/10 ml-5'></div>
+                                <div className='flex flex-col text-left -mt-1 text-emerald-600 dark:text-emerald-500 text-sm ml-[18px]'>
                                     <span className='text-2xl font-DanaDemiBold'>21</span>
                                     <span className='text-sm'>مرداد</span>
                                     <span className='text-sm'>1404</span>
                                 </div>
                             </div>
-
+                            <div className='w-full  flex sm:hidden items-end justify-between mt-5 pt-[18px] pb-1.5  border-t border-t-gray-100 dark:border-t-white/10'>
+                                <span className='inline-block text-xs text-emerald-600 dark:text-emerald-500'>
+                                    21 مرداد 1404
+                                </span>
+                                <Link href='/' className=' flex items-center gap-x-1 h-5 rounded-md pr-2.5 pl-2 text-xs font-DanaMedium bg-orange-200/20 text-orange-300'>
+                                    مطالعه
+                                    <svg className='size-3.5'>
+                                        <use href='#arrow-left' />
+                                    </svg>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
