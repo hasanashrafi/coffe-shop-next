@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 
-import ProductCardMain from './templates/ProductCardMain';
+import ProductCard from './templates/ProductCard';
 import { fetchProducts } from '@/redux/features/products/productsSlice';
 
 function BestSelling() {
@@ -110,7 +110,7 @@ function BestSelling() {
           >
             {bestSellingProducts.map((product, index) => (
               <SwiperSlide key={index} className='p-0.5 '>
-                <ProductCardMain {...product} />
+                <ProductCard product={product} variant="main" />
               </SwiperSlide>
             ))}
           </Swiper>
