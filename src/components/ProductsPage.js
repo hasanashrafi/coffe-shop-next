@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
-import ProductCardMain from './templates/ProductCardMain'
+import ProductCard from './templates/ProductCard'
 import Loader from './modules/Loader';
 import { fetchProducts } from '@/redux/features/products/productsSlice';
 
@@ -52,7 +52,7 @@ function ProductsPage() {
         {/* products grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
           {products.map((product, index) => (
-            <ProductCardMain key={product.id || `product-${index}`} {...product} />
+            <ProductCard key={product.id || `product-${index}`} product={product} variant="main" />
           ))}
         </div>
 
