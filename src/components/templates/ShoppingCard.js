@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './ProductCardBasket'
+import ProductCard from './ProductCard'
 import Link from 'next/link';
 import sampleProducts from '@/data/sampleProducts';
 
@@ -26,7 +26,7 @@ function ShoppingCard() {
             <div className={` border-b-2 border-b-gray-300 dark:border-b-white/10 ${sampleProducts.length > 3 ? 'max-h-[300px] overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]' : ''
                 }`}>
                 {sampleProducts.map(product => (
-                    <ProductCard key={product.id} {...product} />
+                    <ProductCard key={product.id} product={product} variant="basket" />
                 ))}
             </div>
 
