@@ -59,7 +59,7 @@ export default function Home() {
       {/* <BestSelling/> */}
 
       {/* Coffee Club */}
-      <CoffeeClub/>
+      {/* <CoffeeClub/> */}
 
       {/* Blog */}
       <Blog/>
