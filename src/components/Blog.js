@@ -47,7 +47,7 @@ function Blog() {
                         </div>
 
                         <div className='w-full flex flex-col sm:flex-row  items-start justify-between'>
-                            <Link href='/' className='block max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>طرز تهیه قهوه دمی با دستگاه اروپرس</Link>
+                            <Link href='/' className=' max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>طرز تهیه قهوه دمی با دستگاه اروپرس</Link>
                             <div className='hidden sm:flex gap-5 '>
                                 <div className='block w-px h-[61px] bg-gray-100 dark:bg-white/10 ml-5'></div>
                                 <div className='flex flex-col text-left -mt-1 text-emerald-600 dark:text-emerald-500 text-sm ml-[18px]'>
