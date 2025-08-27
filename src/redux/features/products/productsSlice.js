@@ -9,16 +9,23 @@ const initialState = {
 
 const fetchProducts = createAsyncThunk("products/fetchProducts", async (_, { rejectWithValue }) => {
     try {
-        // Use the correct backend URL that's actually working
+        // Optionally, send a lightweight ping to wake up the server
+        await axios.get("https://backend-coffeshop-node.onrender.com/api/ping").catch(() => {});
+
+        // Increased timeout to handle cold starts
         const response = await axios.get("https://backend-coffeshop-node.onrender.com/api/products", {
             headers: { 'Content-Type': 'application/json' },
-            timeout: 15000,
+            timeout: 30000, // Increased timeout
         });
 
         return response.data;
     } catch (error) {
         console.error('Error fetching products:', error);
-        return rejectWithValue(error.response?.data?.message || error.message || 'Failed to fetch products');
+        return rejectWithValue(
+            error.code === 'ECONNABORTED'
+                ? 'Server is waking up, please wait and try again.'
+                : error.response?.data?.message || error.message || 'Failed to fetch products'
+        );
     }
 });
 
@@ -31,8 +38,6 @@ const productsSlice = createSlice({
             state.error = null;
         })
         builder.addCase(fetchProducts.fulfilled, (state, action) => {
-
-            // Handle the response structure: { success: true, data: [...] }
             let productsArray = [];
             if (action.payload && action.payload.success && Array.isArray(action.payload.data)) {
                 productsArray = action.payload.data;
@@ -55,7 +60,6 @@ const productsSlice = createSlice({
     }
 })
 
-
 // Selectors
 export const selectProducts = (state) => state.products.products;
 export const selectProductsLoading = (state) => state.products.loading;
@@ -63,8 +67,6 @@ export const selectProductsError = (state) => state.products.error;
 export const selectBestSellingProducts = (state, limit = 8) => {
     const products = state.products.products;
     if (!Array.isArray(products) || products.length === 0) return [];
-
-    // Simple logic to get best selling products (you can customize this)
     return products
         .sort((a, b) => (b.rating || 0) - (a.rating || 0))
         .slice(0, limit);
