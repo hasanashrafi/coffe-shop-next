@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <main className="font-Dana scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
-      <section className="home relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  md:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
+      <section className="home relative h-[200px] xs:h-auto xs:aspect-[2/1] md:aspect-auto bg-home-mobile  lg:bg-home-desktop bg-cover  bg-[center-top] bg-no-repeat ">
         <div className="container relative overflow-y-hidden h-full md:min-h-screen  flex justify-end items-center">
           <div className="text-white ">
             <h2 className="md:text-6xl/[62px] mb-0.5 md:mb-2 font-bold text-2xl font-MorabbaBold ">
@@ -47,19 +47,19 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      {/* <ProductsPage /> */}
+      <ProductsPage />
 
       {/* category banner */}
-      {/* <CategoryBanner /> */}
+      <CategoryBanner />
 
       {/* Products Category */}
-      {/* <ProductsCategory/> */}
+      <ProductsCategory/>
 
       {/* Best Selling Products */}
-      {/* <BestSelling/> */}
+      <BestSelling/>
 
       {/* Coffee Club */}
-      {/* <CoffeeClub/> */}
+      <CoffeeClub/>
 
       {/* Blog */}
       <Blog/>
