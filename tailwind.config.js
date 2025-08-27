@@ -77,5 +77,6 @@ module.exports = {
       addVariant("child-hover", "& > *:hover");
     },
     require("tailwind-scrollbar")({ nocompatible: true }),
+    "prettier-plugin-tailwindcss"
   ],
 };
