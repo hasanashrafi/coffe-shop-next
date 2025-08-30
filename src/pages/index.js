@@ -2,6 +2,7 @@ import BestSelling from "@/components/BestSelling";
 import Blog from "@/components/Blog";
 import CategoryBanner from "@/components/CategoryBanner";
 import CoffeeClub from "@/components/CoffeeClub";
+import ContactUs from "@/components/ContactUs";
 import ProductsCategory from "@/components/ProductsCategory";
 import ProductsPage from "@/components/ProductsPage";
 
@@ -47,22 +48,25 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      <ProductsPage />
+      {/* <ProductsPage /> */}
 
       {/* category banner */}
-      <CategoryBanner />
+      {/* <CategoryBanner /> */}
 
       {/* Products Category */}
-      <ProductsCategory/>
+      {/* <ProductsCategory/> */}
 
       {/* Best Selling Products */}
-      <BestSelling/>
+      {/* <BestSelling/> */}
 
       {/* Coffee Club */}
-      <CoffeeClub/>
+      {/* <CoffeeClub/> */}
 
       {/* Blog */}
-      <Blog/>
+      {/* <Blog/> */}
+
+      {/* ContactUs */}
+      <ContactUs/>
     </main>
   );
 }
