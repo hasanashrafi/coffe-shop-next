@@ -27,7 +27,7 @@ function Blog() {
                 </div>
 
                 {/* section content */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                     <div className='group flex sm:block gap-x-2.5 bg-white dark:bg-zinc-700 p-2.5 md:pb-2 rounded-2xl shadow-md'>
                         <div className='shrink-0 size-[130px] sm:w-auto sm:h-auto relative sm:mb-4 rounded-2xl rounded-bl-4xl overflow-hidden'>
                             <Image
@@ -74,7 +74,6 @@ function Blog() {
                             </div>
                         </div>
                     </div>
-                
                     <div className='group flex sm:block gap-x-2.5 bg-white dark:bg-zinc-700 p-2.5 md:pb-2 rounded-2xl shadow-md'>
                         <div className='shrink-0 size-[130px] sm:w-auto sm:h-auto relative sm:mb-4 rounded-2xl rounded-bl-4xl overflow-hidden'>
                             <Image
@@ -96,8 +95,7 @@ function Blog() {
 
                         <div className='w-full flex flex-col sm:flex-row  items-start justify-between'>
                             <Link href='/' className=' max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>
-                                طرز تهیه قهوه دمی با دستگاه اروپرس
-                            </Link>
+                                یک نوشیدنی هیجان انگیز و پرکالری برای شروع روز                            </Link>
                             <div className='hidden sm:flex gap-5 '>
                                 <div className='hidden lg:block w-px h-[61px] bg-gray-100 dark:bg-white/10 '></div>
                                 <div className='flex flex-col text-left -mt-1 text-emerald-600 dark:text-emerald-500 text-sm ml-[12px] lg:ml-[18px]'>
@@ -142,8 +140,7 @@ function Blog() {
 
                         <div className='w-full flex flex-col sm:flex-row  items-start justify-between'>
                             <Link href='/' className=' max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>
-                                طرز تهیه قهوه دمی با دستگاه اروپرس
-                            </Link>
+                                طرز تهیه یک فنجان کافه زینو برزیلی                            </Link>
                             <div className='hidden sm:flex gap-5 '>
                                 <div className='hidden lg:block w-px h-[61px] bg-gray-100 dark:bg-white/10 '></div>
                                 <div className='flex flex-col text-left -mt-1 text-emerald-600 dark:text-emerald-500 text-sm ml-[12px] lg:ml-[18px]'>
@@ -188,8 +185,7 @@ function Blog() {
 
                         <div className='w-full flex flex-col sm:flex-row  items-start justify-between'>
                             <Link href='/' className=' max-w-[193px] ml-1.5 sm:ml-0 mt-2.5 sm:mt-0 text-sm/7 md:text-lg font-DanaMedium md:font-Dana line-clamp-2 text-zinc-700 dark:text-white'>
-                                طرز تهیه قهوه دمی با دستگاه اروپرس
-                            </Link>
+                                طرز تهیه قهوه دالگونا مناسب روزهای کرونایی                            </Link>
                             <div className='hidden sm:flex gap-5 '>
                                 <div className='hidden lg:block w-px h-[61px] bg-gray-100 dark:bg-white/10 '></div>
                                 <div className='flex flex-col text-left -mt-1 text-emerald-600 dark:text-emerald-500 text-sm ml-[12px] lg:ml-[18px]'>
@@ -214,7 +210,7 @@ function Blog() {
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </section>
     )
