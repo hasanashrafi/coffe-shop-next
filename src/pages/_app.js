@@ -1,8 +1,8 @@
 import Layout from "@/components/layout/Layout";
-import "@/styles/globals.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import Providers from "@/redux/Providers";
+import "@/styles/globals.css";
 // import { QueryClient, QueryClientProvider } from '@tanstack/react-query';//
 // import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
