@@ -5,6 +5,7 @@ import CoffeeClub from "@/components/CoffeeClub";
 import ContactUs from "@/components/ContactUs";
 import ProductsCategory from "@/components/ProductsCategory";
 import ProductsPage from "@/components/ProductsPage";
+import Services from "@/components/Services";
 
 export default function Home() {
  
@@ -67,6 +68,11 @@ export default function Home() {
 
       {/* ContactUs */}
       <ContactUs/>
+
+      {/* Services */}
+      <Services/>
+
+
     </main>
   );
 }
