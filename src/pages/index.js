@@ -49,22 +49,22 @@ export default function Home() {
       </section>
 
       {/* products section */}
-      {/* <ProductsPage /> */}
+      <ProductsPage />
 
       {/* category banner */}
-      {/* <CategoryBanner /> */}
+      <CategoryBanner />
 
       {/* Products Category */}
-      {/* <ProductsCategory/> */}
+      <ProductsCategory/>
 
       {/* Best Selling Products */}
-      {/* <BestSelling/> */}
+      <BestSelling/>
 
       {/* Coffee Club */}
-      {/* <CoffeeClub/> */}
+      <CoffeeClub/>
 
       {/* Blog */}
-      {/* <Blog/> */}
+      <Blog/>
 
       {/* ContactUs */}
       <ContactUs/>
