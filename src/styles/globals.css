@@ -82,7 +82,7 @@
   background-color: #d1d5db;
 }
 
-@media screen and (min-width:480) {
+@media screen and (min-width:480px) {
   .services::after,
   .services::before {
     content: none;
