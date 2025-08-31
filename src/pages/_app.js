@@ -23,7 +23,7 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>Coffee-Shop</title>
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/images/app-logo.png" />
       </Head>
       {/* <QueryClientProvider client={queryClient}> */}
         <ThemeProvider attribute="class" defaultTheme="system">
