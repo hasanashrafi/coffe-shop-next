@@ -45,6 +45,7 @@ module.exports = {
           DEFAULT: "1rem",
           lg: "0.625rem",
         },
+        
       },
       backgroundImage: {
         "home-mobile": "url(/images/headerBgMobile.webp)",
