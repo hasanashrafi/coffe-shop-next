@@ -10,10 +10,10 @@ function Services() {
                     <div className='flex items-center flex-col md:flex-row md:gap-x-4 gap-y-5 '>
                         <div>
                             <svg className='dark:hidden w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services/support.svg' />
+                                <use href='#support' />
                             </svg> 
                             <svg className='hidden dark:inline-block w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services-2/support-dark.svg' />
+                                <use href='#support-dark' />
                             </svg>
                         </div>
                         <div className=''>
@@ -29,10 +29,10 @@ function Services() {
                     <div className='flex items-center flex-col md:flex-row md:gap-x-4 gap-y-5 '>
                         <div>
                             <svg className='dark:hidden w-[108px] h-[73px] '>
-                                <use href='/images/svgs/services/express-delivery.svg' />
+                                <use href='#express-delivery' />
                             </svg>
                             <svg className='hidden dark:inline-block w-[108px] h-[73px] '>
-                                <use href='/images/svgs/services-2/express-delivery-dark.svg' />
+                                <use href='#express-delivery-dark' />
                             </svg>
                         </div>
                         <div className=''>
@@ -47,10 +47,10 @@ function Services() {
                     <div className='flex items-center flex-col md:flex-row md:gap-x-4 gap-y-5 '>
                         <div>
                             <svg className='dark:hidden w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services/coffee.svg' />
+                                <use href='#coffee' />
                             </svg>
                             <svg className='hidden dark:inline-block w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services-2/coffee-dark.svg' />
+                                <use href='#coffee-dark' />
                             </svg>
                         </div>
                         <div className=''>
@@ -65,10 +65,10 @@ function Services() {
                     <div className='flex items-center flex-col md:flex-row md:gap-x-4 gap-y-5 '>
                         <div>
                             <svg className='dark:hidden w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services/pitcher.svg' />
+                                <use href='#pitcher' />
                             </svg>
                             <svg className='hidden dark:inline-block w-[66px] h-[73px] '>
-                                <use href='/images/svgs/services-2/pitcher-dark.svg' />
+                                <use href='#pitcher-dark' />
                             </svg>
                         </div>
                         <div className=''>
