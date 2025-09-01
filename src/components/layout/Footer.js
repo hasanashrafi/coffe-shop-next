@@ -16,9 +16,9 @@ function Footer() {
             </div>
 
             {/* footer content */}
-            <div className='flex justify-between text-gray-300 w-[98%] lg:w-[90%] mx-auto h-96'>
+            <div className='flex justify-between text-gray-300 px-4 md:px-0 w-[98%] lg:w-[90%] mx-auto h-96'>
                 <div>
-                    <div className=' flex items-center   gap-x-5 mb-4.5'>
+                    <div className=' flex items-center   gap-x-5 mb-6 md:mb-4.5'>
                         <svg className=' text-gray-300 w-[57px] h-[54px] '>
                             <use href='#mobile-logo'></use>
                         </svg>
@@ -26,7 +26,7 @@ function Footer() {
                             <use href='#logo-type'></use>
                         </svg>
                     </div>
-                    <p className='text-xl/[48px] max-w-[606px]'>
+                    <p className='text-lg md:text-xl/[48px] max-w-[606px]'>
                         ما برآنیم تا با پیشرو بودن در فرایند تولید، نوع و کیفیت محصول، خدمات و توزیع،الگویی برای تولیدکنندگان ایرانی باشیم و به مرجع فرهنگ قهوه در ایران تبدیل شویم. می پنداریم که نظر مردم ایران و منطقه باید نسبت به کالای ایرانی بهبود یابد و در این راستا با اشتیاق می کوشیم.
                     </p>
                 </div>
