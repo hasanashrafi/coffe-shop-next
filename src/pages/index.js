@@ -8,7 +8,7 @@ import ProductsPage from "@/components/ProductsPage";
 import Services from "@/components/Services";
 
 export default function Home() {
- 
+
 
   return (
     <main className="font-Dana scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">
@@ -55,24 +55,22 @@ export default function Home() {
       <CategoryBanner />
 
       {/* Products Category */}
-      <ProductsCategory/>
+      <ProductsCategory />
 
       {/* Best Selling Products */}
-      <BestSelling/>
+      <BestSelling />
 
       {/* Coffee Club */}
-      <CoffeeClub/>
+      <CoffeeClub />
 
       {/* Blog */}
-      <Blog/>
+      <Blog />
 
       {/* ContactUs */}
-      <ContactUs/>
+      <ContactUs />
 
       {/* Services */}
-      <Services/>
-
-
+      <Services />
     </main>
   );
 }
