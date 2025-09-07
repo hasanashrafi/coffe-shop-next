@@ -4,7 +4,7 @@ import React from 'react'
 import { FaShoppingBag } from 'react-icons/fa'
 
 function ProductCard({ product, variant = 'main' }) {
-    const { name, price, discount, image, rate = 0 } = product
+    const { name, price, discount, image } = product
 
     // Main variant (desktop) - similar to ProductCardMain
     if (variant === 'main') {

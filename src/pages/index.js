@@ -1,14 +1,13 @@
-import BestSelling from "@/components/BestSelling";
 import Blog from "@/components/Blog";
-import CategoryBanner from "@/components/CategoryBanner";
-import CoffeeClub from "@/components/CoffeeClub";
-import ContactUs from "@/components/ContactUs";
-import ProductsCategory from "@/components/ProductsCategory";
-import ProductsPage from "@/components/ProductsPage";
 import Services from "@/components/Services";
+import ContactUs from "@/components/ContactUs";
+import CoffeeClub from "@/components/CoffeeClub";
+import BestSelling from "@/components/BestSelling";
+import ProductsPage from "@/components/ProductsPage";
+import CategoryBanner from "@/components/CategoryBanner";
+import ProductsCategory from "@/components/ProductsCategory";
 
 export default function Home() {
-
 
   return (
     <main className="font-Dana scroll-smooth overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ">

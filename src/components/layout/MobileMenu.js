@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 import MobileShoppingCard from '../templates/MobileShoppingCart';
 import Links from './Links';
 
@@ -59,7 +59,8 @@ function MobileMenu({ darkMode, currentTheme }) {
                                         <use href='#logo-type'></use>
                                     </svg>
                                 </div>
-                                <svg className='size-5 dark:text-white text-zinc-600' onClick={() => setMobileMenu(!mobileMenu)}>
+                                <svg className='size-5 dark:text-white text-zinc-600' 
+                                onClick={() => setMobileMenu(!mobileMenu)}>
                                     <use href='#close'></use>
                                 </svg>
                             </div>
