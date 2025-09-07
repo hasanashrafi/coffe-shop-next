@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import MobileShoppingCard from '../templates/MobileShoppingCart';
 import Links from './Links';
+import Cookies from 'js-cookie';
 
 function MobileMenu({ darkMode, currentTheme }) {
     const [mobileMenu, setMobileMenu] = useState(false);
@@ -14,7 +15,7 @@ function MobileMenu({ darkMode, currentTheme }) {
     }
 
     useEffect(()=>{
-        const token = localStorage.getItem('token')
+        const token = Cookies.get('token')
         if(token){
             setIsLogin(true)
         }

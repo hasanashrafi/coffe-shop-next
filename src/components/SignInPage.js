@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { FaCoffee } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 import { loginUser } from '@/utils/api';
+import Cookies from 'js-cookie';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -21,13 +22,14 @@ function SignInPage() {
 
     try {
       const response = await loginUser({ email, password });
-      // Axios: response.data is the actual payload
-      const data = response.data.data;
-      console.log('Signin response:', data);
+      console.log('Signin response:', response);
+      // Try both possible response structures
+      const data = response.data.data || response.data;
+      console.log('Parsed signin data:', data);
 
       if (data.token) {
         toast.success("با موفقیت وارد شدید")
-        localStorage.setItem('token', data.token);
+        Cookies.set('token', data.token, { expires: 7 }); // Save token in cookies for 7 days
         localStorage.setItem('user', JSON.stringify(data.user));
         router.push('/dashboard');
       } else {

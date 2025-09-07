@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie';
 
 const api = axios.create({
     baseURL: 'https://backend-coffeshop-node.onrender.com/api',
@@ -24,7 +25,7 @@ export const getDashboard = async (userId) => {
 };
 
 api.interceptors.request.use(async (config) => {
-    const token = localStorage.getItem('token');
+    const token = Cookies.get('token');
     if (token) {
         config.headers.Authorization = `Bearer ${token}`;
     }

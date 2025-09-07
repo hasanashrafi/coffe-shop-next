@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import NavBar from './NavBar'
 import ShoppingCard from '../templates/ShoppingCard'
+import Cookies from 'js-cookie'
 
 function Header({ darkMode, currentTheme }) {
     const [isLogin, setIsLogin] = useState(false)
     
     useEffect(() => {
-        const token = localStorage.getItem('token')
+        const token = Cookies.get('token')
         if (token) {
             setIsLogin(true)
         }

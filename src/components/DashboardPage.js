@@ -2,24 +2,26 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { getProfile } from '@/utils/api';
+import Cookies from 'js-cookie';
 
 function DashboardPage() {
     const [userDetail, setUserDetail] = useState([])
     const router = useRouter()
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = Cookies.get('token');
         if (!token) {
             router.push('/signin');
             return;
         }
         const fetchUserProfile = async () => {
             try {
-                const response = await getProfile();
+                // Pass token to getProfile if needed
+                const response = await getProfile(token);
                 const data = response.data;
 
                 if (data.message === 'Invalid token' || data.message === 'Authentication required') {
-                    localStorage.removeItem('token');
+                    Cookies.remove('token');
                     router.push('/signin');
                     return;
                 }
@@ -34,7 +36,7 @@ function DashboardPage() {
     }, [])
 
     const logoutHandler = () => {
-        localStorage.removeItem("token")
+        Cookies.remove("token")
         localStorage.removeItem("user")
         router.push("/signin")
     }
