@@ -103,3 +103,8 @@ html.dark .services::before {
   width: calc(100% - 2rem);
   height: 1px;
 }
+
+.ltr{
+  direction: ltr;
+  text-align: left;
+}
